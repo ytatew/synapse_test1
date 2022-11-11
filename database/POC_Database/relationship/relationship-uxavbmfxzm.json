@@ -1,0 +1,26 @@
+{
+	"name": "relationship-uxavbmfxzm",
+	"properties": {
+		"Name": "relationship-uxavbmfxzm",
+		"EntityType": "RELATIONSHIP",
+		"Namespace": {
+			"DatabaseName": "POC_Database"
+		},
+		"Origin": {
+			"Type": "SPARK"
+		},
+		"FromTableName": "ProjectActivity",
+		"ToTableName": "ProjectPhaseActivity",
+		"ColumnRelationshipInformations": [
+			{
+				"FromColumnName": "ProjectId",
+				"ToColumnName": "ProjectId"
+			}
+		],
+		"RelationshipType": 0,
+		"Properties": {
+			"DerivedModelRelationshipInfo": "{\"baseRelationship\":{\"fromEntity\":\"ProjectActivity.cdm.json/ProjectActivity\",\"toEntity\":\"ProjectPhaseActivity.cdm.json/ProjectPhaseActivity\",\"joinPairs\":[{\"fromAttribute\":\"ProjectId\",\"toAttribute\":\"ProjectId\"}]}}"
+		}
+	},
+	"type": "RELATIONSHIP"
+}

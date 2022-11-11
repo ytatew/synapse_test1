@@ -1,0 +1,184 @@
+{
+	"name": "POC_Project_Document",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "poc_document",
+						"type": "DatasetReference"
+					},
+					"name": "POCDocument1"
+				},
+				{
+					"dataset": {
+						"referenceName": "poc_document",
+						"type": "DatasetReference"
+					},
+					"name": "POCDocument2"
+				},
+				{
+					"dataset": {
+						"referenceName": "poc_document",
+						"type": "DatasetReference"
+					},
+					"name": "POCDocument3"
+				}
+			],
+			"sinks": [
+				{
+					"name": "DocumentType"
+				},
+				{
+					"name": "TaskDocument"
+				},
+				{
+					"name": "Document"
+				}
+			],
+			"transformations": [
+				{
+					"name": "flatDocumentType"
+				},
+				{
+					"name": "flatTaskDocuement"
+				},
+				{
+					"name": "flatDocument"
+				},
+				{
+					"name": "adctotimestamp"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          DocumenteType as (documenttypeid as short, documenttypename as string)[],",
+				"          Taskdocument as (documentid as short, taskid as short)[],",
+				"          document as (documentcreatedtimestamp as string, documentid as short, documentname as string, documenttypeid as short)[]",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     documentForm: 'singleDocument') ~> POCDocument1",
+				"source(output(",
+				"          DocumenteType as (documenttypeid as short, documenttypename as string)[],",
+				"          Taskdocument as (documentid as short, taskid as short)[],",
+				"          document as (documentcreatedtimestamp as string, documentid as short, documentname as string, documenttypeid as short)[]",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     documentForm: 'singleDocument') ~> POCDocument2",
+				"source(output(",
+				"          DocumenteType as (documenttypeid as short, documenttypename as string)[],",
+				"          Taskdocument as (documentid as short, taskid as short)[],",
+				"          document as (documentcreatedtimestamp as string, documentid as short, documentname as string, documenttypeid as short)[]",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     documentForm: 'singleDocument') ~> POCDocument3",
+				"POCDocument1 foldDown(unroll(DocumenteType),",
+				"     mapColumn(",
+				"          documenttypeid = DocumenteType.documenttypeid,",
+				"          documenttypename = DocumenteType.documenttypename",
+				"     ),",
+				"     skipDuplicateMapInputs: false,",
+				"     skipDuplicateMapOutputs: false) ~> flatDocumentType",
+				"POCDocument2 foldDown(unroll(Taskdocument),",
+				"     mapColumn(",
+				"          documentid = Taskdocument.documentid,",
+				"          taskid = Taskdocument.taskid",
+				"     ),",
+				"     skipDuplicateMapInputs: false,",
+				"     skipDuplicateMapOutputs: false) ~> flatTaskDocuement",
+				"POCDocument3 foldDown(unroll(document),",
+				"     mapColumn(",
+				"          DocumentCreatedTimestamp = document.documentcreatedtimestamp,",
+				"          DocumentId = document.documentid,",
+				"          DocumentName = document.documentname,",
+				"          DocumentTypeId = document.documenttypeid",
+				"     ),",
+				"     skipDuplicateMapInputs: false,",
+				"     skipDuplicateMapOutputs: false) ~> flatDocument",
+				"flatDocument cast(output(",
+				"          DocumentCreatedTimestamp as timestamp 'yyyy-MM-dd\\'T\\'HH:mm:ss'",
+				"     ),",
+				"     errors: true) ~> adctotimestamp",
+				"flatDocumentType sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     store: 'synapse',",
+				"     databaseType: 'spark',",
+				"     format: 'table',",
+				"     database: 'POC_Database',",
+				"     tableName: 'DocumentType',",
+				"     input(",
+				"          DocumentTypeId as integer,",
+				"          DocumentTypeName as string,",
+				"          DocumentTypeDescription as string,",
+				"          GlobalDocumentTypeIdentifier as string,",
+				"          DocumentTypeRetentionPeriod as decimal(3,0),",
+				"          DocumentTypeRetentionPeriodUomId as integer,",
+				"          DocumentTypeRetentionPeriodNote as string",
+				"     ),",
+				"     mapColumn(",
+				"          DocumentTypeId = documenttypeid,",
+				"          DocumentTypeName = documenttypename",
+				"     )) ~> DocumentType",
+				"flatTaskDocuement sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     store: 'synapse',",
+				"     databaseType: 'spark',",
+				"     format: 'table',",
+				"     database: 'POC_Database',",
+				"     tableName: 'TaskDocument',",
+				"     input(",
+				"          TaskId as integer,",
+				"          DocumentId as long,",
+				"          TaskDocumentNote as string",
+				"     ),",
+				"     mapColumn(",
+				"          TaskId = taskid,",
+				"          DocumentId = documentid",
+				"     )) ~> TaskDocument",
+				"adctotimestamp sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     store: 'synapse',",
+				"     databaseType: 'spark',",
+				"     format: 'table',",
+				"     database: 'POC_Database',",
+				"     tableName: 'Document',",
+				"     input(",
+				"          DocumentId as long,",
+				"          DocumentName as string,",
+				"          DocumentDescription as string,",
+				"          GlobalDocumentTypeIdentifier as string,",
+				"          DocumentScopeStatement as string,",
+				"          DocumentRevisionNumber as integer,",
+				"          DocumentCreatedTimestamp as timestamp,",
+				"          DocumentCompletedTimestamp as timestamp,",
+				"          DocumentFiledTimestamp as timestamp,",
+				"          DocumentFirstPublishedTimestamp as timestamp,",
+				"          DocumentMinimumRetentionTimestamp as timestamp,",
+				"          DocumentCopyrightTimestamp as timestamp,",
+				"          DocumentDeletedTimestamp as timestamp,",
+				"          DocumentImage as binary,",
+				"          DocumentText as string,",
+				"          DocumentNote as string,",
+				"          NumberOfPages as integer,",
+				"          PageSize as string,",
+				"          DocumentUrl as string,",
+				"          IsoLanguageId as integer,",
+				"          DeliveryMethodId as integer,",
+				"          DocumentFormatTypeId as integer,",
+				"          DocumentTypeId as integer,",
+				"          MediaTypeId as integer,",
+				"          CountryId as integer,",
+				"          StateId as integer,",
+				"          IdentificationId as integer",
+				"     )) ~> Document"
+			]
+		}
+	}
+}

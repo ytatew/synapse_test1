@@ -1,0 +1,107 @@
+{
+	"name": "TaskDocument",
+	"properties": {
+		"Name": "TaskDocument",
+		"EntityType": "TABLE",
+		"Namespace": {
+			"DatabaseName": "POC_Database"
+		},
+		"Description": "A task document.",
+		"TableType": "EXTERNAL",
+		"Origin": {
+			"Type": "SPARK"
+		},
+		"StorageDescriptor": {
+			"Columns": [
+				{
+					"Name": "TaskId",
+					"Description": "The unique identifier of a Task.",
+					"OriginDataTypeName": {
+						"TypeName": "integer",
+						"IsComplexType": false,
+						"IsNullable": false,
+						"Properties": {
+							"HIVE_TYPE_STRING": "integer"
+						}
+					},
+					"BaseAttributeReference": {
+						"Entity": "TaskDocument.cdm.json/TaskDocument",
+						"Name": "TaskId"
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "DocumentId",
+					"Description": "The unique identifier of a Document.",
+					"OriginDataTypeName": {
+						"TypeName": "long",
+						"IsComplexType": false,
+						"IsNullable": false,
+						"Properties": {
+							"HIVE_TYPE_STRING": "long"
+						}
+					},
+					"BaseAttributeReference": {
+						"Entity": "TaskDocument.cdm.json/TaskDocument",
+						"Name": "DocumentId"
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "TaskDocumentNote",
+					"Description": "A note, comment or additional information regarding the task related document.",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1024,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					},
+					"BaseAttributeReference": {
+						"Entity": "TaskDocument.cdm.json/TaskDocument",
+						"Name": "TaskDocumentNote"
+					},
+					"DeltaFormatInvalidMessages": []
+				}
+			],
+			"Format": {
+				"InputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+				"OutputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
+				"FormatType": "parquet",
+				"SerializeLib": "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+				"Properties": {
+					"path": "abfss://posynapsetest002fs@posynapsetest002str.dfs.core.windows.net/POC_Database/TaskDocument",
+					"FormatTypeSetToDatabaseDefault": true
+				}
+			},
+			"Source": {
+				"Provider": "ADLS",
+				"Location": "abfss://posynapsetest002fs@posynapsetest002str.dfs.core.windows.net/POC_Database/TaskDocument",
+				"Properties": {
+					"LinkedServiceName": "posynapsetest002-WorkspaceDefaultStorage",
+					"LocationSetToDatabaseDefault": true
+				}
+			},
+			"Properties": {
+				"textinputformat.record.delimiter": ",",
+				"compression": "{\"type\":\"None\",\"level\":\"optimal\"}",
+				"derivedModelAttributeInfo": "{\"attributeReferences\":{\"TaskId\":{\"entity\":\"TaskDocument.cdm.json/TaskDocument\",\"name\":\"TaskId\"},\"DocumentId\":{\"entity\":\"TaskDocument.cdm.json/TaskDocument\",\"name\":\"DocumentId\"},\"TaskDocumentNote\":{\"entity\":\"TaskDocument.cdm.json/TaskDocument\",\"name\":\"TaskDocumentNote\"}}}"
+			},
+			"Compressed": false,
+			"IsStoredAsSubdirectories": false
+		},
+		"Properties": {
+			"DerivedModelEntityInfo": "{\"entityDirectives\":{\"baseEntityReference\":{\"name\":\"TaskDocument\",\"path\":\"TaskDocument.cdm.json/TaskDocument\"},\"description\":\"A task document.\",\"primaryKey\":[\"TaskId\",\"DocumentId\"],\"projectionInfo\":{\"attributes\":[{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"TaskDocument.cdm.json/TaskDocument\",\"name\":\"TaskId\"},\"dataType\":\"integer\",\"description\":\"The unique identifier of a Task.\",\"isNullable\":false,\"name\":\"TaskId\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"TaskDocument.cdm.json/TaskDocument\",\"name\":\"DocumentId\"},\"dataType\":\"long\",\"description\":\"The unique identifier of a Document.\",\"isNullable\":false,\"name\":\"DocumentId\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"TaskDocument.cdm.json/TaskDocument\",\"name\":\"TaskDocumentNote\"},\"dataType\":\"string\",\"dataTypeLength\":1024,\"description\":\"A note, comment or additional information regarding the task related document.\",\"isNullable\":true,\"name\":\"TaskDocumentNote\"}]}}}",
+			"Description": "A task document.",
+			"DisplayFolderInfo": "{\"name\":\"Work Order Management\",\"colorCode\":\"#F775C5\"}",
+			"PrimaryKeys": "TaskId,DocumentId",
+			"spark.sql.sources.provider": "parquet"
+		},
+		"Retention": 0,
+		"Temporary": false,
+		"IsRewriteEnabled": false
+	},
+	"type": "TABLE"
+}

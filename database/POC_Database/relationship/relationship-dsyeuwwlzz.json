@@ -1,0 +1,26 @@
+{
+	"name": "relationship-dsyeuwwlzz",
+	"properties": {
+		"Name": "relationship-dsyeuwwlzz",
+		"EntityType": "RELATIONSHIP",
+		"Namespace": {
+			"DatabaseName": "POC_Database"
+		},
+		"Origin": {
+			"Type": "SPARK"
+		},
+		"FromTableName": "ProjectActivity",
+		"ToTableName": "ProjectActivityTask",
+		"ColumnRelationshipInformations": [
+			{
+				"FromColumnName": "ProjectId",
+				"ToColumnName": "ProjectId"
+			}
+		],
+		"RelationshipType": 0,
+		"Properties": {
+			"DerivedModelRelationshipInfo": "{\"baseRelationship\":{\"fromEntity\":\"ProjectActivity.cdm.json/ProjectActivity\",\"toEntity\":\"ProjectActivityTask.cdm.json/ProjectActivityTask\",\"joinPairs\":[{\"fromAttribute\":\"ProjectId\",\"toAttribute\":\"ProjectId\"}]}}"
+		}
+	},
+	"type": "RELATIONSHIP"
+}

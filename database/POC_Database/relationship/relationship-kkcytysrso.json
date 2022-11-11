@@ -1,0 +1,26 @@
+{
+	"name": "relationship-kkcytysrso",
+	"properties": {
+		"Name": "relationship-kkcytysrso",
+		"EntityType": "RELATIONSHIP",
+		"Namespace": {
+			"DatabaseName": "POC_Database"
+		},
+		"Origin": {
+			"Type": "SPARK"
+		},
+		"FromTableName": "ProjectActivity",
+		"ToTableName": "ProjectActivityTask",
+		"ColumnRelationshipInformations": [
+			{
+				"FromColumnName": "ActivityId",
+				"ToColumnName": "ActivityId"
+			}
+		],
+		"RelationshipType": 0,
+		"Properties": {
+			"DerivedModelRelationshipInfo": "{\"baseRelationship\":{\"fromEntity\":\"ProjectActivity.cdm.json/ProjectActivity\",\"toEntity\":\"ProjectActivityTask.cdm.json/ProjectActivityTask\",\"joinPairs\":[{\"fromAttribute\":\"ActivityId\",\"toAttribute\":\"ActivityId\"}]}}"
+		}
+	},
+	"type": "RELATIONSHIP"
+}

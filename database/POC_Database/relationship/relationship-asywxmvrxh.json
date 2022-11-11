@@ -1,0 +1,26 @@
+{
+	"name": "relationship-asywxmvrxh",
+	"properties": {
+		"Name": "relationship-asywxmvrxh",
+		"EntityType": "RELATIONSHIP",
+		"Namespace": {
+			"DatabaseName": "POC_Database"
+		},
+		"Origin": {
+			"Type": "SPARK"
+		},
+		"FromTableName": "Employee",
+		"ToTableName": "Resource",
+		"ColumnRelationshipInformations": [
+			{
+				"FromColumnName": "EmployeeId",
+				"ToColumnName": "EmployeeId"
+			}
+		],
+		"RelationshipType": 0,
+		"Properties": {
+			"DerivedModelRelationshipInfo": "{\"baseRelationship\":{\"fromEntity\":\"Employee.cdm.json/Employee\",\"toEntity\":\"Resource.cdm.json/Resource\",\"joinPairs\":[{\"fromAttribute\":\"EmployeeId\",\"toAttribute\":\"EmployeeId\"}]}}"
+		}
+	},
+	"type": "RELATIONSHIP"
+}

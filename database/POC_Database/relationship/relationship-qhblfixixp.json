@@ -1,0 +1,26 @@
+{
+	"name": "relationship-qhblfixixp",
+	"properties": {
+		"Name": "relationship-qhblfixixp",
+		"EntityType": "RELATIONSHIP",
+		"Namespace": {
+			"DatabaseName": "POC_Database"
+		},
+		"Origin": {
+			"Type": "SPARK"
+		},
+		"FromTableName": "ProjectPhase",
+		"ToTableName": "ProjectPhaseActivity",
+		"ColumnRelationshipInformations": [
+			{
+				"FromColumnName": "ProjectPhaseId",
+				"ToColumnName": "ProjectPhaseId"
+			}
+		],
+		"RelationshipType": 0,
+		"Properties": {
+			"DerivedModelRelationshipInfo": "{\"baseRelationship\":{\"fromEntity\":\"ProjectPhase.cdm.json/ProjectPhase\",\"toEntity\":\"ProjectPhaseActivity.cdm.json/ProjectPhaseActivity\",\"joinPairs\":[{\"fromAttribute\":\"ProjectPhaseId\",\"toAttribute\":\"ProjectPhaseId\"}]}}"
+		}
+	},
+	"type": "RELATIONSHIP"
+}

@@ -1,0 +1,108 @@
+{
+	"name": "ResourceType",
+	"properties": {
+		"Name": "ResourceType",
+		"EntityType": "TABLE",
+		"Namespace": {
+			"DatabaseName": "POC_Database"
+		},
+		"Description": "A categorization of types of resources. \n\nEx:\n- Employee Skill\n- Employee\n- Component\n- Item\n- Raw Material",
+		"TableType": "EXTERNAL",
+		"Origin": {
+			"Type": "SPARK"
+		},
+		"StorageDescriptor": {
+			"Columns": [
+				{
+					"Name": "ResourceTypeId",
+					"Description": "The unique identifier of a Resource Type.",
+					"OriginDataTypeName": {
+						"TypeName": "integer",
+						"IsComplexType": false,
+						"IsNullable": false,
+						"Properties": {
+							"HIVE_TYPE_STRING": "integer"
+						}
+					},
+					"BaseAttributeReference": {
+						"Entity": "ResourceType.cdm.json/ResourceType",
+						"Name": "ResourceTypeId"
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "ResourceTypeName",
+					"Description": "The name of a Resource Type.",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 128,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					},
+					"BaseAttributeReference": {
+						"Entity": "ResourceType.cdm.json/ResourceType",
+						"Name": "ResourceTypeName"
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "ResourceTypeDescription",
+					"Description": "The description of a Resource Type.",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 512,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					},
+					"BaseAttributeReference": {
+						"Entity": "ResourceType.cdm.json/ResourceType",
+						"Name": "ResourceTypeDescription"
+					},
+					"DeltaFormatInvalidMessages": []
+				}
+			],
+			"Format": {
+				"InputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+				"OutputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
+				"FormatType": "parquet",
+				"SerializeLib": "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+				"Properties": {
+					"path": "abfss://posynapsetest002fs@posynapsetest002str.dfs.core.windows.net/POC_Database/ResourceType",
+					"FormatTypeSetToDatabaseDefault": true
+				}
+			},
+			"Source": {
+				"Provider": "ADLS",
+				"Location": "abfss://posynapsetest002fs@posynapsetest002str.dfs.core.windows.net/POC_Database/ResourceType",
+				"Properties": {
+					"LinkedServiceName": "posynapsetest002-WorkspaceDefaultStorage",
+					"LocationSetToDatabaseDefault": true
+				}
+			},
+			"Properties": {
+				"textinputformat.record.delimiter": ",",
+				"compression": "{\"type\":\"None\",\"level\":\"optimal\"}",
+				"derivedModelAttributeInfo": "{\"attributeReferences\":{\"ResourceTypeId\":{\"entity\":\"ResourceType.cdm.json/ResourceType\",\"name\":\"ResourceTypeId\"},\"ResourceTypeName\":{\"entity\":\"ResourceType.cdm.json/ResourceType\",\"name\":\"ResourceTypeName\"},\"ResourceTypeDescription\":{\"entity\":\"ResourceType.cdm.json/ResourceType\",\"name\":\"ResourceTypeDescription\"}}}"
+			},
+			"Compressed": false,
+			"IsStoredAsSubdirectories": false
+		},
+		"Properties": {
+			"DerivedModelEntityInfo": "{\"entityDirectives\":{\"baseEntityReference\":{\"name\":\"ResourceType\",\"path\":\"ResourceType.cdm.json/ResourceType\"},\"description\":\"A categorization of types of resources. \\n\\nEx:\\n- Employee Skill\\n- Employee\\n- Component\\n- Item\\n- Raw Material\",\"primaryKey\":[\"ResourceTypeId\"],\"projectionInfo\":{\"attributes\":[{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"ResourceType.cdm.json/ResourceType\",\"name\":\"ResourceTypeId\"},\"dataType\":\"integer\",\"description\":\"The unique identifier of a Resource Type.\",\"isNullable\":false,\"name\":\"ResourceTypeId\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"ResourceType.cdm.json/ResourceType\",\"name\":\"ResourceTypeName\"},\"dataType\":\"string\",\"dataTypeLength\":128,\"description\":\"The name of a Resource Type.\",\"isNullable\":true,\"name\":\"ResourceTypeName\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"ResourceType.cdm.json/ResourceType\",\"name\":\"ResourceTypeDescription\"},\"dataType\":\"string\",\"dataTypeLength\":512,\"description\":\"The description of a Resource Type.\",\"isNullable\":true,\"name\":\"ResourceTypeDescription\"}]}}}",
+			"Description": "A categorization of types of resources. \n\nEx:\n- Employee Skill\n- Employee\n- Component\n- Item\n- Raw Material",
+			"DisplayFolderInfo": "{\"name\":\"Project Management\",\"colorCode\":\"#BD4B37\"}",
+			"PrimaryKeys": "ResourceTypeId",
+			"spark.sql.sources.provider": "parquet"
+		},
+		"Retention": 0,
+		"Temporary": false,
+		"IsRewriteEnabled": false
+	},
+	"type": "TABLE"
+}

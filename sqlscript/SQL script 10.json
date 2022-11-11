@@ -1,0 +1,17 @@
+{
+	"name": "SQL script 10",
+	"properties": {
+		"content": {
+			"query": "SELECT TOP (100) [DocumentId]\n,[DocumentName]\n,[DocumentDescription]\n,[GlobalDocumentTypeIdentifier]\n,[DocumentScopeStatement]\n,[DocumentRevisionNumber]\n,[DocumentCreatedTimestamp]\n,[DocumentCompletedTimestamp]\n,[DocumentFiledTimestamp]\n,[DocumentFirstPublishedTimestamp]\n,[DocumentMinimumRetentionTimestamp]\n,[DocumentCopyrightTimestamp]\n,[DocumentDeletedTimestamp]\n,[DocumentImage]\n,[DocumentText]\n,[DocumentNote]\n,[NumberOfPages]\n,[PageSize]\n,[DocumentUrl]\n,[IsoLanguageId]\n,[DeliveryMethodId]\n,[DocumentFormatTypeId]\n,[DocumentTypeId]\n,[MediaTypeId]\n,[CountryId]\n,[StateId]\n,[IdentificationId]\n FROM [POC_Database].[dbo].[Document]",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "POC_Database",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

@@ -1,0 +1,144 @@
+{
+	"name": "TaskResource",
+	"properties": {
+		"Name": "TaskResource",
+		"EntityType": "TABLE",
+		"Namespace": {
+			"DatabaseName": "POC_Database"
+		},
+		"Description": "The resource(s) required by, consumed by or associated with the task.",
+		"TableType": "EXTERNAL",
+		"Origin": {
+			"Type": "SPARK"
+		},
+		"StorageDescriptor": {
+			"Columns": [
+				{
+					"Name": "TaskId",
+					"Description": "The unique identifier of a Task.",
+					"OriginDataTypeName": {
+						"TypeName": "integer",
+						"IsComplexType": false,
+						"IsNullable": false,
+						"Properties": {
+							"HIVE_TYPE_STRING": "integer"
+						}
+					},
+					"BaseAttributeReference": {
+						"Entity": "TaskResource.cdm.json/TaskResource",
+						"Name": "TaskId"
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "ResourceId",
+					"Description": "The unique identifier of a Resource.",
+					"OriginDataTypeName": {
+						"TypeName": "integer",
+						"IsComplexType": false,
+						"IsNullable": false,
+						"Properties": {
+							"HIVE_TYPE_STRING": "integer"
+						}
+					},
+					"BaseAttributeReference": {
+						"Entity": "TaskResource.cdm.json/TaskResource",
+						"Name": "ResourceId"
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "ResourceNumber",
+					"Description": "The number of associated resource associated with the task.",
+					"OriginDataTypeName": {
+						"TypeName": "integer",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Properties": {
+							"HIVE_TYPE_STRING": "integer"
+						}
+					},
+					"BaseAttributeReference": {
+						"Entity": "TaskResource.cdm.json/TaskResource",
+						"Name": "ResourceNumber"
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "ResourceAmount",
+					"Description": "The amount of associated resource associated with the task.",
+					"OriginDataTypeName": {
+						"TypeName": "decimal",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Precision": 18,
+						"Scale": 2,
+						"Properties": {
+							"HIVE_TYPE_STRING": "decimal"
+						}
+					},
+					"BaseAttributeReference": {
+						"Entity": "TaskResource.cdm.json/TaskResource",
+						"Name": "ResourceAmount"
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "ResourceQuantity",
+					"Description": "The quantity of associated resource associated with the task.",
+					"OriginDataTypeName": {
+						"TypeName": "decimal",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Precision": 18,
+						"Scale": 2,
+						"Properties": {
+							"HIVE_TYPE_STRING": "decimal"
+						}
+					},
+					"BaseAttributeReference": {
+						"Entity": "TaskResource.cdm.json/TaskResource",
+						"Name": "ResourceQuantity"
+					},
+					"DeltaFormatInvalidMessages": []
+				}
+			],
+			"Format": {
+				"InputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+				"OutputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
+				"FormatType": "parquet",
+				"SerializeLib": "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+				"Properties": {
+					"path": "abfss://posynapsetest002fs@posynapsetest002str.dfs.core.windows.net/POC_Database/TaskResource",
+					"FormatTypeSetToDatabaseDefault": true
+				}
+			},
+			"Source": {
+				"Provider": "ADLS",
+				"Location": "abfss://posynapsetest002fs@posynapsetest002str.dfs.core.windows.net/POC_Database/TaskResource",
+				"Properties": {
+					"LinkedServiceName": "posynapsetest002-WorkspaceDefaultStorage",
+					"LocationSetToDatabaseDefault": true
+				}
+			},
+			"Properties": {
+				"textinputformat.record.delimiter": ",",
+				"compression": "{\"type\":\"None\",\"level\":\"optimal\"}",
+				"derivedModelAttributeInfo": "{\"attributeReferences\":{\"TaskId\":{\"entity\":\"TaskResource.cdm.json/TaskResource\",\"name\":\"TaskId\"},\"ResourceId\":{\"entity\":\"TaskResource.cdm.json/TaskResource\",\"name\":\"ResourceId\"},\"ResourceNumber\":{\"entity\":\"TaskResource.cdm.json/TaskResource\",\"name\":\"ResourceNumber\"},\"ResourceAmount\":{\"entity\":\"TaskResource.cdm.json/TaskResource\",\"name\":\"ResourceAmount\"},\"ResourceQuantity\":{\"entity\":\"TaskResource.cdm.json/TaskResource\",\"name\":\"ResourceQuantity\"}}}"
+			},
+			"Compressed": false,
+			"IsStoredAsSubdirectories": false
+		},
+		"Properties": {
+			"DerivedModelEntityInfo": "{\"entityDirectives\":{\"baseEntityReference\":{\"name\":\"TaskResource\",\"path\":\"TaskResource.cdm.json/TaskResource\"},\"description\":\"The resource(s) required by, consumed by or associated with the task.\",\"primaryKey\":[\"TaskId\",\"ResourceId\"],\"projectionInfo\":{\"attributes\":[{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"TaskResource.cdm.json/TaskResource\",\"name\":\"TaskId\"},\"dataType\":\"integer\",\"description\":\"The unique identifier of a Task.\",\"isNullable\":false,\"name\":\"TaskId\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"TaskResource.cdm.json/TaskResource\",\"name\":\"ResourceId\"},\"dataType\":\"integer\",\"description\":\"The unique identifier of a Resource.\",\"isNullable\":false,\"name\":\"ResourceId\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"TaskResource.cdm.json/TaskResource\",\"name\":\"ResourceNumber\"},\"dataType\":\"integer\",\"description\":\"The number of associated resource associated with the task.\",\"isNullable\":true,\"name\":\"ResourceNumber\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"TaskResource.cdm.json/TaskResource\",\"name\":\"ResourceAmount\"},\"dataType\":\"decimal\",\"dataTypeLength\":18,\"description\":\"The amount of associated resource associated with the task.\",\"isNullable\":true,\"scale\":2,\"name\":\"ResourceAmount\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"TaskResource.cdm.json/TaskResource\",\"name\":\"ResourceQuantity\"},\"dataType\":\"decimal\",\"dataTypeLength\":18,\"description\":\"The quantity of associated resource associated with the task.\",\"isNullable\":true,\"scale\":2,\"name\":\"ResourceQuantity\"}]}}}",
+			"Description": "The resource(s) required by, consumed by or associated with the task.",
+			"DisplayFolderInfo": "{\"name\":\"Project Management\",\"colorCode\":\"#BD4B37\"}",
+			"PrimaryKeys": "TaskId,ResourceId",
+			"spark.sql.sources.provider": "parquet"
+		},
+		"Retention": 0,
+		"Temporary": false,
+		"IsRewriteEnabled": false
+	},
+	"type": "TABLE"
+}

@@ -1,0 +1,23 @@
+{
+	"name": "POC_Database",
+	"properties": {
+		"Name": "POC_Database",
+		"EntityType": "DATABASE",
+		"Origin": {
+			"Type": "SPARK"
+		},
+		"Properties": {
+			"IsSyMSCDMDatabase": true,
+			"DerivedModelDBInfo": "{\"ModelDirectives\":{\"BaseModel\":{\"Name\":\"Manufacturing\",\"Version\":\"0.1.0\"}}}"
+		},
+		"Source": {
+			"Provider": "ADLS",
+			"Location": "abfss://posynapsetest002fs@posynapsetest002str.dfs.core.windows.net/POC_Database",
+			"Properties": {
+				"FormatType": "parquet",
+				"LinkedServiceName": "posynapsetest002-WorkspaceDefaultStorage"
+			}
+		}
+	},
+	"type": "DATABASE"
+}

@@ -1,0 +1,571 @@
+{
+	"name": "Task",
+	"properties": {
+		"Name": "Task",
+		"EntityType": "TABLE",
+		"Namespace": {
+			"DatabaseName": "POC_Database"
+		},
+		"Description": "A specific task or piece of work that is performed.",
+		"TableType": "EXTERNAL",
+		"Origin": {
+			"Type": "SPARK"
+		},
+		"StorageDescriptor": {
+			"Columns": [
+				{
+					"Name": "TaskId",
+					"Description": "The unique identifier of a Task.",
+					"OriginDataTypeName": {
+						"TypeName": "integer",
+						"IsComplexType": false,
+						"IsNullable": false,
+						"Properties": {
+							"HIVE_TYPE_STRING": "integer"
+						}
+					},
+					"BaseAttributeReference": {
+						"Entity": "Task.cdm.json/Task",
+						"Name": "TaskId"
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "TaskName",
+					"Description": "The name of a Task.",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 128,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					},
+					"BaseAttributeReference": {
+						"Entity": "Task.cdm.json/Task",
+						"Name": "TaskName"
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "TaskDescription",
+					"Description": "The description of the task.",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 512,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					},
+					"BaseAttributeReference": {
+						"Entity": "Task.cdm.json/Task",
+						"Name": "TaskDescription"
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "TaskSpecificationStatement",
+					"Description": "Detailed statements of project deliverables that result from requirements definition and design. \n\nSpecifications usually describe deliverables in terms of appearance, constraints and quality attributes. \n\nSpecifications are the basis for acceptance criteria used in scope verification and quality control.",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 2048,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					},
+					"BaseAttributeReference": {
+						"Entity": "Task.cdm.json/Task",
+						"Name": "TaskSpecificationStatement"
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "SequenceNumber",
+					"Description": "The sequence number of the Task.",
+					"OriginDataTypeName": {
+						"TypeName": "integer",
+						"IsComplexType": false,
+						"IsNullable": false,
+						"Properties": {
+							"HIVE_TYPE_STRING": "integer"
+						}
+					},
+					"BaseAttributeReference": {
+						"Entity": "Task.cdm.json/Task",
+						"Name": "SequenceNumber"
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "MilestoneIndicator",
+					"Description": "Indicates whether the task is a milestone.",
+					"OriginDataTypeName": {
+						"TypeName": "boolean",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Properties": {
+							"HIVE_TYPE_STRING": "boolean"
+						}
+					},
+					"BaseAttributeReference": {
+						"Entity": "Task.cdm.json/Task",
+						"Name": "MilestoneIndicator"
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "CriticalPathTaskIndicator",
+					"Description": "Tasks in a project network that have the longest duration. This represents the series of activities that determines the earliest completion of the project",
+					"OriginDataTypeName": {
+						"TypeName": "boolean",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Properties": {
+							"HIVE_TYPE_STRING": "boolean"
+						}
+					},
+					"BaseAttributeReference": {
+						"Entity": "Task.cdm.json/Task",
+						"Name": "CriticalPathTaskIndicator"
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "TaskNote",
+					"Description": "A note, comment or additional information regarding the related Task.",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1024,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					},
+					"BaseAttributeReference": {
+						"Entity": "Task.cdm.json/Task",
+						"Name": "TaskNote"
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "TaskPlannedStartTimestamp",
+					"Description": "The planned start timestamp of the task.",
+					"OriginDataTypeName": {
+						"TypeName": "timestamp",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Properties": {
+							"TimestampFormat": "YYYY-MM-DD HH:MM:SS.fffffffff",
+							"HIVE_TYPE_STRING": "timestamp"
+						}
+					},
+					"BaseAttributeReference": {
+						"Entity": "Task.cdm.json/Task",
+						"Name": "TaskPlannedStartTimestamp"
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "TaskScheduledStartTimestamp",
+					"Description": "The scheduled start timestamp of the task.",
+					"OriginDataTypeName": {
+						"TypeName": "timestamp",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Properties": {
+							"TimestampFormat": "YYYY-MM-DD HH:MM:SS.fffffffff",
+							"HIVE_TYPE_STRING": "timestamp"
+						}
+					},
+					"BaseAttributeReference": {
+						"Entity": "Task.cdm.json/Task",
+						"Name": "TaskScheduledStartTimestamp"
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "TaskActualStartTimestamp",
+					"Description": "The actual start date of the task.",
+					"OriginDataTypeName": {
+						"TypeName": "timestamp",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Properties": {
+							"TimestampFormat": "YYYY-MM-DD HH:MM:SS.fffffffff",
+							"HIVE_TYPE_STRING": "timestamp"
+						}
+					},
+					"BaseAttributeReference": {
+						"Entity": "Task.cdm.json/Task",
+						"Name": "TaskActualStartTimestamp"
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "TaskPlannedCompletionTimestamp",
+					"Description": "The planned completion timestamp of the task.",
+					"OriginDataTypeName": {
+						"TypeName": "timestamp",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Properties": {
+							"TimestampFormat": "YYYY-MM-DD HH:MM:SS.fffffffff",
+							"HIVE_TYPE_STRING": "timestamp"
+						}
+					},
+					"BaseAttributeReference": {
+						"Entity": "Task.cdm.json/Task",
+						"Name": "TaskPlannedCompletionTimestamp"
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "TaskScheduledCompletionTimestamp",
+					"Description": "The scheduled completion timestamp of the task.",
+					"OriginDataTypeName": {
+						"TypeName": "timestamp",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Properties": {
+							"TimestampFormat": "YYYY-MM-DD HH:MM:SS.fffffffff",
+							"HIVE_TYPE_STRING": "timestamp"
+						}
+					},
+					"BaseAttributeReference": {
+						"Entity": "Task.cdm.json/Task",
+						"Name": "TaskScheduledCompletionTimestamp"
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "TaskActualCompletionTimestamp",
+					"Description": "The actual finish date of the task.",
+					"OriginDataTypeName": {
+						"TypeName": "timestamp",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Properties": {
+							"TimestampFormat": "YYYY-MM-DD HH:MM:SS.fffffffff",
+							"HIVE_TYPE_STRING": "timestamp"
+						}
+					},
+					"BaseAttributeReference": {
+						"Entity": "Task.cdm.json/Task",
+						"Name": "TaskActualCompletionTimestamp"
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "TaskEarliestStartTimestamp",
+					"Description": "The earliest task start timestamp.",
+					"OriginDataTypeName": {
+						"TypeName": "timestamp",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Properties": {
+							"TimestampFormat": "YYYY-MM-DD HH:MM:SS.fffffffff",
+							"HIVE_TYPE_STRING": "timestamp"
+						}
+					},
+					"BaseAttributeReference": {
+						"Entity": "Task.cdm.json/Task",
+						"Name": "TaskEarliestStartTimestamp"
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "TaskLatestStartTimestamp",
+					"Description": "The latest task start timestamp.",
+					"OriginDataTypeName": {
+						"TypeName": "timestamp",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Properties": {
+							"TimestampFormat": "YYYY-MM-DD HH:MM:SS.fffffffff",
+							"HIVE_TYPE_STRING": "timestamp"
+						}
+					},
+					"BaseAttributeReference": {
+						"Entity": "Task.cdm.json/Task",
+						"Name": "TaskLatestStartTimestamp"
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "TaskEarliestCompletionTimestamp",
+					"Description": "The earliest task completion timestamp.",
+					"OriginDataTypeName": {
+						"TypeName": "timestamp",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Properties": {
+							"TimestampFormat": "YYYY-MM-DD HH:MM:SS.fffffffff",
+							"HIVE_TYPE_STRING": "timestamp"
+						}
+					},
+					"BaseAttributeReference": {
+						"Entity": "Task.cdm.json/Task",
+						"Name": "TaskEarliestCompletionTimestamp"
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "TaskLatestCompletionTimestamp",
+					"Description": "The latest task completion timestamp.",
+					"OriginDataTypeName": {
+						"TypeName": "timestamp",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Properties": {
+							"TimestampFormat": "YYYY-MM-DD HH:MM:SS.fffffffff",
+							"HIVE_TYPE_STRING": "timestamp"
+						}
+					},
+					"BaseAttributeReference": {
+						"Entity": "Task.cdm.json/Task",
+						"Name": "TaskLatestCompletionTimestamp"
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "TaskFloatHours",
+					"Description": "The amount of time available for a task to slip before it results in a delay of the project end date. It is the difference between the task's early and late start dates.",
+					"OriginDataTypeName": {
+						"TypeName": "integer",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Properties": {
+							"HIVE_TYPE_STRING": "integer"
+						}
+					},
+					"BaseAttributeReference": {
+						"Entity": "Task.cdm.json/Task",
+						"Name": "TaskFloatHours"
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "PlannedBillableLaborUnits",
+					"Description": "The planned total number of billable labor units anticipated to be associated with the task.",
+					"OriginDataTypeName": {
+						"TypeName": "integer",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Properties": {
+							"HIVE_TYPE_STRING": "integer"
+						}
+					},
+					"BaseAttributeReference": {
+						"Entity": "Task.cdm.json/Task",
+						"Name": "PlannedBillableLaborUnits"
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "ActualBillableLaborUnits",
+					"Description": "The actual total number of billable labor units resulting from the task.",
+					"OriginDataTypeName": {
+						"TypeName": "integer",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Properties": {
+							"HIVE_TYPE_STRING": "integer"
+						}
+					},
+					"BaseAttributeReference": {
+						"Entity": "Task.cdm.json/Task",
+						"Name": "ActualBillableLaborUnits"
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "PlannedBillableChargesAmount",
+					"Description": "The planned total amount of billable charges anticipated to be associated with the task.",
+					"OriginDataTypeName": {
+						"TypeName": "decimal",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Precision": 18,
+						"Scale": 2,
+						"Properties": {
+							"HIVE_TYPE_STRING": "decimal"
+						}
+					},
+					"BaseAttributeReference": {
+						"Entity": "Task.cdm.json/Task",
+						"Name": "PlannedBillableChargesAmount"
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "ActualBillableChargesAmount",
+					"Description": "The actual total amount of billable charges associated with the task.",
+					"OriginDataTypeName": {
+						"TypeName": "decimal",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Precision": 18,
+						"Scale": 2,
+						"Properties": {
+							"HIVE_TYPE_STRING": "decimal"
+						}
+					},
+					"BaseAttributeReference": {
+						"Entity": "Task.cdm.json/Task",
+						"Name": "ActualBillableChargesAmount"
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "PlannedCostsAmount",
+					"Description": "The planned internal costs associated with the task.",
+					"OriginDataTypeName": {
+						"TypeName": "decimal",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Precision": 18,
+						"Scale": 2,
+						"Properties": {
+							"HIVE_TYPE_STRING": "decimal"
+						}
+					},
+					"BaseAttributeReference": {
+						"Entity": "Task.cdm.json/Task",
+						"Name": "PlannedCostsAmount"
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "ActualCostsAmount",
+					"Description": "The actual internal costs associated with the task.",
+					"OriginDataTypeName": {
+						"TypeName": "decimal",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Precision": 18,
+						"Scale": 2,
+						"Properties": {
+							"HIVE_TYPE_STRING": "decimal"
+						}
+					},
+					"BaseAttributeReference": {
+						"Entity": "Task.cdm.json/Task",
+						"Name": "ActualCostsAmount"
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "TaskTypeId",
+					"Description": "The unique identifier of a Task Type.",
+					"OriginDataTypeName": {
+						"TypeName": "integer",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Properties": {
+							"HIVE_TYPE_STRING": "integer"
+						}
+					},
+					"BaseAttributeReference": {
+						"Entity": "Task.cdm.json/Task",
+						"Name": "TaskTypeId"
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "LocationId",
+					"Description": "The unique identifier of a Location.",
+					"OriginDataTypeName": {
+						"TypeName": "integer",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Properties": {
+							"HIVE_TYPE_STRING": "integer"
+						}
+					},
+					"BaseAttributeReference": {
+						"Entity": "Task.cdm.json/Task",
+						"Name": "LocationId"
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "ResponsibilityCenterId",
+					"Description": "The unique identifier of a Responsibility Center.",
+					"OriginDataTypeName": {
+						"TypeName": "integer",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Properties": {
+							"HIVE_TYPE_STRING": "integer"
+						}
+					},
+					"BaseAttributeReference": {
+						"Entity": "Task.cdm.json/Task",
+						"Name": "ResponsibilityCenterId"
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "TaskGlAccountNumber",
+					"Description": "The GL Account Number assigned to a Task.",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 16,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					},
+					"BaseAttributeReference": {
+						"Entity": "Task.cdm.json/Task",
+						"Name": "TaskGlAccountNumber"
+					},
+					"DeltaFormatInvalidMessages": []
+				}
+			],
+			"Format": {
+				"InputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+				"OutputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
+				"FormatType": "parquet",
+				"SerializeLib": "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+				"Properties": {
+					"path": "abfss://posynapsetest002fs@posynapsetest002str.dfs.core.windows.net/POC_Database/Task",
+					"FormatTypeSetToDatabaseDefault": true
+				}
+			},
+			"Source": {
+				"Provider": "ADLS",
+				"Location": "abfss://posynapsetest002fs@posynapsetest002str.dfs.core.windows.net/POC_Database/Task",
+				"Properties": {
+					"LinkedServiceName": "posynapsetest002-WorkspaceDefaultStorage",
+					"LocationSetToDatabaseDefault": true
+				}
+			},
+			"Properties": {
+				"textinputformat.record.delimiter": ",",
+				"compression": "{\"type\":\"None\",\"level\":\"optimal\"}",
+				"derivedModelAttributeInfo": "{\"attributeReferences\":{\"TaskId\":{\"entity\":\"Task.cdm.json/Task\",\"name\":\"TaskId\"},\"TaskName\":{\"entity\":\"Task.cdm.json/Task\",\"name\":\"TaskName\"},\"TaskDescription\":{\"entity\":\"Task.cdm.json/Task\",\"name\":\"TaskDescription\"},\"TaskSpecificationStatement\":{\"entity\":\"Task.cdm.json/Task\",\"name\":\"TaskSpecificationStatement\"},\"SequenceNumber\":{\"entity\":\"Task.cdm.json/Task\",\"name\":\"SequenceNumber\"},\"MilestoneIndicator\":{\"entity\":\"Task.cdm.json/Task\",\"name\":\"MilestoneIndicator\"},\"CriticalPathTaskIndicator\":{\"entity\":\"Task.cdm.json/Task\",\"name\":\"CriticalPathTaskIndicator\"},\"TaskNote\":{\"entity\":\"Task.cdm.json/Task\",\"name\":\"TaskNote\"},\"TaskPlannedStartTimestamp\":{\"entity\":\"Task.cdm.json/Task\",\"name\":\"TaskPlannedStartTimestamp\"},\"TaskScheduledStartTimestamp\":{\"entity\":\"Task.cdm.json/Task\",\"name\":\"TaskScheduledStartTimestamp\"},\"TaskActualStartTimestamp\":{\"entity\":\"Task.cdm.json/Task\",\"name\":\"TaskActualStartTimestamp\"},\"TaskPlannedCompletionTimestamp\":{\"entity\":\"Task.cdm.json/Task\",\"name\":\"TaskPlannedCompletionTimestamp\"},\"TaskScheduledCompletionTimestamp\":{\"entity\":\"Task.cdm.json/Task\",\"name\":\"TaskScheduledCompletionTimestamp\"},\"TaskActualCompletionTimestamp\":{\"entity\":\"Task.cdm.json/Task\",\"name\":\"TaskActualCompletionTimestamp\"},\"TaskEarliestStartTimestamp\":{\"entity\":\"Task.cdm.json/Task\",\"name\":\"TaskEarliestStartTimestamp\"},\"TaskLatestStartTimestamp\":{\"entity\":\"Task.cdm.json/Task\",\"name\":\"TaskLatestStartTimestamp\"},\"TaskEarliestCompletionTimestamp\":{\"entity\":\"Task.cdm.json/Task\",\"name\":\"TaskEarliestCompletionTimestamp\"},\"TaskLatestCompletionTimestamp\":{\"entity\":\"Task.cdm.json/Task\",\"name\":\"TaskLatestCompletionTimestamp\"},\"TaskFloatHours\":{\"entity\":\"Task.cdm.json/Task\",\"name\":\"TaskFloatHours\"},\"PlannedBillableLaborUnits\":{\"entity\":\"Task.cdm.json/Task\",\"name\":\"PlannedBillableLaborUnits\"},\"ActualBillableLaborUnits\":{\"entity\":\"Task.cdm.json/Task\",\"name\":\"ActualBillableLaborUnits\"},\"PlannedBillableChargesAmount\":{\"entity\":\"Task.cdm.json/Task\",\"name\":\"PlannedBillableChargesAmount\"},\"ActualBillableChargesAmount\":{\"entity\":\"Task.cdm.json/Task\",\"name\":\"ActualBillableChargesAmount\"},\"PlannedCostsAmount\":{\"entity\":\"Task.cdm.json/Task\",\"name\":\"PlannedCostsAmount\"},\"ActualCostsAmount\":{\"entity\":\"Task.cdm.json/Task\",\"name\":\"ActualCostsAmount\"},\"TaskTypeId\":{\"entity\":\"Task.cdm.json/Task\",\"name\":\"TaskTypeId\"},\"LocationId\":{\"entity\":\"Task.cdm.json/Task\",\"name\":\"LocationId\"},\"ResponsibilityCenterId\":{\"entity\":\"Task.cdm.json/Task\",\"name\":\"ResponsibilityCenterId\"},\"TaskGlAccountNumber\":{\"entity\":\"Task.cdm.json/Task\",\"name\":\"TaskGlAccountNumber\"}}}"
+			},
+			"Compressed": false,
+			"IsStoredAsSubdirectories": false
+		},
+		"Properties": {
+			"DerivedModelEntityInfo": "{\"entityDirectives\":{\"baseEntityReference\":{\"name\":\"Task\",\"path\":\"Task.cdm.json/Task\"},\"description\":\"A specific task or piece of work that is performed.\",\"primaryKey\":[\"TaskId\"],\"projectionInfo\":{\"attributes\":[{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"Task.cdm.json/Task\",\"name\":\"TaskId\"},\"dataType\":\"integer\",\"description\":\"The unique identifier of a Task.\",\"isNullable\":false,\"name\":\"TaskId\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"Task.cdm.json/Task\",\"name\":\"TaskName\"},\"dataType\":\"string\",\"dataTypeLength\":128,\"description\":\"The name of a Task.\",\"isNullable\":true,\"name\":\"TaskName\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"Task.cdm.json/Task\",\"name\":\"TaskDescription\"},\"dataType\":\"string\",\"dataTypeLength\":512,\"description\":\"The description of the task.\",\"isNullable\":true,\"name\":\"TaskDescription\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"Task.cdm.json/Task\",\"name\":\"TaskSpecificationStatement\"},\"dataType\":\"string\",\"dataTypeLength\":2048,\"description\":\"Detailed statements of project deliverables that result from requirements definition and design. \\n\\nSpecifications usually describe deliverables in terms of appearance, constraints and quality attributes. \\n\\nSpecifications are the basis for acceptance criteria used in scope verification and quality control.\",\"isNullable\":true,\"name\":\"TaskSpecificationStatement\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"Task.cdm.json/Task\",\"name\":\"SequenceNumber\"},\"dataType\":\"integer\",\"description\":\"The sequence number of the Task.\",\"isNullable\":false,\"name\":\"SequenceNumber\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"Task.cdm.json/Task\",\"name\":\"MilestoneIndicator\"},\"dataType\":\"boolean\",\"description\":\"Indicates whether the task is a milestone.\",\"isNullable\":true,\"name\":\"MilestoneIndicator\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"Task.cdm.json/Task\",\"name\":\"CriticalPathTaskIndicator\"},\"dataType\":\"boolean\",\"description\":\"Tasks in a project network that have the longest duration. This represents the series of activities that determines the earliest completion of the project\",\"isNullable\":true,\"name\":\"CriticalPathTaskIndicator\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"Task.cdm.json/Task\",\"name\":\"TaskNote\"},\"dataType\":\"string\",\"dataTypeLength\":1024,\"description\":\"A note, comment or additional information regarding the related Task.\",\"isNullable\":true,\"name\":\"TaskNote\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"Task.cdm.json/Task\",\"name\":\"TaskPlannedStartTimestamp\"},\"dataType\":\"timestamp\",\"description\":\"The planned start timestamp of the task.\",\"isNullable\":true,\"name\":\"TaskPlannedStartTimestamp\",\"timestampFormat\":\"YYYY-MM-DD HH:MM:SS.fffffffff\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"Task.cdm.json/Task\",\"name\":\"TaskScheduledStartTimestamp\"},\"dataType\":\"timestamp\",\"description\":\"The scheduled start timestamp of the task.\",\"isNullable\":true,\"name\":\"TaskScheduledStartTimestamp\",\"timestampFormat\":\"YYYY-MM-DD HH:MM:SS.fffffffff\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"Task.cdm.json/Task\",\"name\":\"TaskActualStartTimestamp\"},\"dataType\":\"timestamp\",\"description\":\"The actual start date of the task.\",\"isNullable\":true,\"name\":\"TaskActualStartTimestamp\",\"timestampFormat\":\"YYYY-MM-DD HH:MM:SS.fffffffff\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"Task.cdm.json/Task\",\"name\":\"TaskPlannedCompletionTimestamp\"},\"dataType\":\"timestamp\",\"description\":\"The planned completion timestamp of the task.\",\"isNullable\":true,\"name\":\"TaskPlannedCompletionTimestamp\",\"timestampFormat\":\"YYYY-MM-DD HH:MM:SS.fffffffff\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"Task.cdm.json/Task\",\"name\":\"TaskScheduledCompletionTimestamp\"},\"dataType\":\"timestamp\",\"description\":\"The scheduled completion timestamp of the task.\",\"isNullable\":true,\"name\":\"TaskScheduledCompletionTimestamp\",\"timestampFormat\":\"YYYY-MM-DD HH:MM:SS.fffffffff\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"Task.cdm.json/Task\",\"name\":\"TaskActualCompletionTimestamp\"},\"dataType\":\"timestamp\",\"description\":\"The actual finish date of the task.\",\"isNullable\":true,\"name\":\"TaskActualCompletionTimestamp\",\"timestampFormat\":\"YYYY-MM-DD HH:MM:SS.fffffffff\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"Task.cdm.json/Task\",\"name\":\"TaskEarliestStartTimestamp\"},\"dataType\":\"timestamp\",\"description\":\"The earliest task start timestamp.\",\"isNullable\":true,\"name\":\"TaskEarliestStartTimestamp\",\"timestampFormat\":\"YYYY-MM-DD HH:MM:SS.fffffffff\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"Task.cdm.json/Task\",\"name\":\"TaskLatestStartTimestamp\"},\"dataType\":\"timestamp\",\"description\":\"The latest task start timestamp.\",\"isNullable\":true,\"name\":\"TaskLatestStartTimestamp\",\"timestampFormat\":\"YYYY-MM-DD HH:MM:SS.fffffffff\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"Task.cdm.json/Task\",\"name\":\"TaskEarliestCompletionTimestamp\"},\"dataType\":\"timestamp\",\"description\":\"The earliest task completion timestamp.\",\"isNullable\":true,\"name\":\"TaskEarliestCompletionTimestamp\",\"timestampFormat\":\"YYYY-MM-DD HH:MM:SS.fffffffff\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"Task.cdm.json/Task\",\"name\":\"TaskLatestCompletionTimestamp\"},\"dataType\":\"timestamp\",\"description\":\"The latest task completion timestamp.\",\"isNullable\":true,\"name\":\"TaskLatestCompletionTimestamp\",\"timestampFormat\":\"YYYY-MM-DD HH:MM:SS.fffffffff\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"Task.cdm.json/Task\",\"name\":\"TaskFloatHours\"},\"dataType\":\"integer\",\"description\":\"The amount of time available for a task to slip before it results in a delay of the project end date. It is the difference between the task's early and late start dates.\",\"isNullable\":true,\"name\":\"TaskFloatHours\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"Task.cdm.json/Task\",\"name\":\"PlannedBillableLaborUnits\"},\"dataType\":\"integer\",\"description\":\"The planned total number of billable labor units anticipated to be associated with the task.\",\"isNullable\":true,\"name\":\"PlannedBillableLaborUnits\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"Task.cdm.json/Task\",\"name\":\"ActualBillableLaborUnits\"},\"dataType\":\"integer\",\"description\":\"The actual total number of billable labor units resulting from the task.\",\"isNullable\":true,\"name\":\"ActualBillableLaborUnits\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"Task.cdm.json/Task\",\"name\":\"PlannedBillableChargesAmount\"},\"dataType\":\"decimal\",\"dataTypeLength\":18,\"description\":\"The planned total amount of billable charges anticipated to be associated with the task.\",\"isNullable\":true,\"scale\":2,\"name\":\"PlannedBillableChargesAmount\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"Task.cdm.json/Task\",\"name\":\"ActualBillableChargesAmount\"},\"dataType\":\"decimal\",\"dataTypeLength\":18,\"description\":\"The actual total amount of billable charges associated with the task.\",\"isNullable\":true,\"scale\":2,\"name\":\"ActualBillableChargesAmount\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"Task.cdm.json/Task\",\"name\":\"PlannedCostsAmount\"},\"dataType\":\"decimal\",\"dataTypeLength\":18,\"description\":\"The planned internal costs associated with the task.\",\"isNullable\":true,\"scale\":2,\"name\":\"PlannedCostsAmount\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"Task.cdm.json/Task\",\"name\":\"ActualCostsAmount\"},\"dataType\":\"decimal\",\"dataTypeLength\":18,\"description\":\"The actual internal costs associated with the task.\",\"isNullable\":true,\"scale\":2,\"name\":\"ActualCostsAmount\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"Task.cdm.json/Task\",\"name\":\"TaskTypeId\"},\"dataType\":\"integer\",\"description\":\"The unique identifier of a Task Type.\",\"isNullable\":true,\"name\":\"TaskTypeId\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"Task.cdm.json/Task\",\"name\":\"LocationId\"},\"dataType\":\"integer\",\"description\":\"The unique identifier of a Location.\",\"isNullable\":true,\"name\":\"LocationId\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"Task.cdm.json/Task\",\"name\":\"ResponsibilityCenterId\"},\"dataType\":\"integer\",\"description\":\"The unique identifier of a Responsibility Center.\",\"isNullable\":true,\"name\":\"ResponsibilityCenterId\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"Task.cdm.json/Task\",\"name\":\"TaskGlAccountNumber\"},\"dataType\":\"string\",\"dataTypeLength\":16,\"description\":\"The GL Account Number assigned to a Task.\",\"isNullable\":true,\"name\":\"TaskGlAccountNumber\"}]}}}",
+			"Description": "A specific task or piece of work that is performed.",
+			"DisplayFolderInfo": "{\"name\":\"Work Order Management\",\"colorCode\":\"#F775C5\"}",
+			"PrimaryKeys": "TaskId",
+			"spark.sql.sources.provider": "parquet"
+		},
+		"Retention": 0,
+		"Temporary": false,
+		"IsRewriteEnabled": false
+	},
+	"type": "TABLE"
+}

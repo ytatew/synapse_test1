@@ -1,0 +1,26 @@
+{
+	"name": "relationship-gvwrimptxl",
+	"properties": {
+		"Name": "relationship-gvwrimptxl",
+		"EntityType": "RELATIONSHIP",
+		"Namespace": {
+			"DatabaseName": "POC_Database"
+		},
+		"Origin": {
+			"Type": "SPARK"
+		},
+		"FromTableName": "Task",
+		"ToTableName": "ProjectActivityTask",
+		"ColumnRelationshipInformations": [
+			{
+				"FromColumnName": "TaskId",
+				"ToColumnName": "TaskId"
+			}
+		],
+		"RelationshipType": 0,
+		"Properties": {
+			"DerivedModelRelationshipInfo": "{\"baseRelationship\":{\"fromEntity\":\"Task.cdm.json/Task\",\"toEntity\":\"ProjectActivityTask.cdm.json/ProjectActivityTask\",\"joinPairs\":[{\"fromAttribute\":\"TaskId\",\"toAttribute\":\"TaskId\"}]}}"
+		}
+	},
+	"type": "RELATIONSHIP"
+}

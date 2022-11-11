@@ -1,0 +1,88 @@
+{
+	"name": "POC_Project_Info",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "poc_project_Info",
+						"type": "DatasetReference"
+					},
+					"name": "POCProjectInfo"
+				}
+			],
+			"sinks": [
+				{
+					"name": "Project"
+				}
+			],
+			"transformations": [
+				{
+					"name": "flatProjectInfo"
+				},
+				{
+					"name": "casttimestamp"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          FiscalYear as short,",
+				"          FutanSyubetsu as string,",
+				"          KenkyuDaimokuEtc as (End as string, FutanMoto as string, KenkyuKaihatsuDaimoku as string, KenkyuKaihatsuNo as string, ShinseiBumon as string, Start as string)[],",
+				"          SeiriNo as boolean,",
+				"          SinkiOrKeizoku as string,",
+				"          Syosyobumon as string,",
+				"          Title as string,",
+				"          projectid as integer",
+				"     ),",
+				"     allowSchemaDrift: false,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     documentForm: 'singleDocument') ~> POCProjectInfo",
+				"POCProjectInfo foldDown(unroll(KenkyuDaimokuEtc),",
+				"     mapColumn(",
+				"          ProjectId = projectid,",
+				"          ProjectName = KenkyuDaimokuEtc.KenkyuKaihatsuDaimoku,",
+				"          ProjectPlannedStartTimestamp = KenkyuDaimokuEtc.Start,",
+				"          ProjectPlannedEndTimestamp = KenkyuDaimokuEtc.End",
+				"     ),",
+				"     skipDuplicateMapInputs: false,",
+				"     skipDuplicateMapOutputs: false) ~> flatProjectInfo",
+				"flatProjectInfo cast(output(",
+				"          ProjectPlannedStartTimestamp as timestamp 'yyyy-MM-dd\\'T\\'HH:mm:ss',",
+				"          ProjectPlannedEndTimestamp as timestamp 'yyyy-MM-dd\\'T\\'HH:mm:ss'",
+				"     ),",
+				"     errors: true) ~> casttimestamp",
+				"casttimestamp sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     store: 'synapse',",
+				"     databaseType: 'spark',",
+				"     format: 'table',",
+				"     database: 'POC_Database',",
+				"     tableName: 'Project',",
+				"     input(",
+				"          ProjectId as integer,",
+				"          ProjectName as string,",
+				"          ProjectDescription as string,",
+				"          ProjectTypeId as integer,",
+				"          ProjectPlannedStartTimestamp as timestamp,",
+				"          ProjectPlannedEndTimestamp as timestamp,",
+				"          ProjectEarliestStartTimestamp as timestamp,",
+				"          ProjectEarliestEndTimestamp as timestamp,",
+				"          ProjectLatestStartTimestamp as timestamp,",
+				"          ProjectLatestEndTimestamp as timestamp,",
+				"          ProjectClosingTimestamp as timestamp,",
+				"          ProjectRiskAssessmentStatement as string,",
+				"          ProjectWorkStatement as string,",
+				"          ProjectCharterStatement as string,",
+				"          BusinessCaseStatement as string,",
+				"          LocationId as integer,",
+				"          ProjectGlAccountNumber as string,",
+				"          ResponsibilityCenterId as integer,",
+				"          ProjectNote as string",
+				"     )) ~> Project"
+			]
+		}
+	}
+}

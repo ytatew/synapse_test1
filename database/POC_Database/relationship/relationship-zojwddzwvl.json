@@ -1,0 +1,26 @@
+{
+	"name": "relationship-zojwddzwvl",
+	"properties": {
+		"Name": "relationship-zojwddzwvl",
+		"EntityType": "RELATIONSHIP",
+		"Namespace": {
+			"DatabaseName": "POC_Database"
+		},
+		"Origin": {
+			"Type": "SPARK"
+		},
+		"FromTableName": "ResourceType",
+		"ToTableName": "Resource",
+		"ColumnRelationshipInformations": [
+			{
+				"FromColumnName": "ResourceTypeId",
+				"ToColumnName": "ResourceTypeId"
+			}
+		],
+		"RelationshipType": 0,
+		"Properties": {
+			"DerivedModelRelationshipInfo": "{\"baseRelationship\":{\"fromEntity\":\"ResourceType.cdm.json/ResourceType\",\"toEntity\":\"Resource.cdm.json/Resource\",\"joinPairs\":[{\"fromAttribute\":\"ResourceTypeId\",\"toAttribute\":\"ResourceTypeId\"}]}}"
+		}
+	},
+	"type": "RELATIONSHIP"
+}

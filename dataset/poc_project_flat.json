@@ -1,0 +1,20 @@
+{
+	"name": "poc_project_flat",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "posynapsetest002-WorkspaceDefaultStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "研究開発活動フォローシート正規化20221117-flat.json",
+				"folderPath": "source",
+				"fileSystem": "posynapsetest002fs"
+			}
+		},
+		"schema": {}
+	}
+}

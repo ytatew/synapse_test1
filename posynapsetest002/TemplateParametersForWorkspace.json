@@ -1,0 +1,39 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"workspaceName": {
+			"value": "posynapsetest002"
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
+		"Dynamics1_servicePrincipalCredential": {
+			"value": ""
+		},
+		"d365-po-poc-WorkspaceDefaultSqlServer_connectionString": {
+			"value": ""
+		},
+		"d365_po_poc_servicePrincipalCredential": {
+			"value": ""
+		},
+		"posynapsetest002-WorkspaceDefaultSqlServer_connectionString": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://pocproecttest.dfs.core.windows.net/"
+		},
+		"Dynamics1_properties_typeProperties_servicePrincipalId": {
+			"value": "503ce4ca-9f26-4bff-a296-4f774b539aab"
+		},
+		"d365-po-poc-WorkspaceDefaultStorage_properties_typeProperties_url": {
+			"value": "https://d365popocstrorage.dfs.core.windows.net"
+		},
+		"d365_po_poc_properties_typeProperties_servicePrincipalId": {
+			"value": "503ce4ca-9f26-4bff-a296-4f774b539aab"
+		},
+		"posynapsetest002-WorkspaceDefaultStorage_properties_typeProperties_url": {
+			"value": "https://posynapsetest002str.dfs.core.windows.net"
+		}
+	}
+}

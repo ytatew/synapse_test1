@@ -1,0 +1,270 @@
+{
+	"name": "Resource",
+	"properties": {
+		"Name": "Resource",
+		"EntityType": "TABLE",
+		"Namespace": {
+			"DatabaseName": "POC_Database"
+		},
+		"Description": "Any tangible support such as, a person, tool, supply item or facility used in the performance of a project. Human resources are people.",
+		"TableType": "EXTERNAL",
+		"Origin": {
+			"Type": "SPARK"
+		},
+		"StorageDescriptor": {
+			"Columns": [
+				{
+					"Name": "ResourceId",
+					"Description": "The unique identifier of a Resource.",
+					"OriginDataTypeName": {
+						"TypeName": "integer",
+						"IsComplexType": false,
+						"IsNullable": false,
+						"Properties": {
+							"HIVE_TYPE_STRING": "integer"
+						}
+					},
+					"BaseAttributeReference": {
+						"Entity": "Resource.cdm.json/Resource",
+						"Name": "ResourceId"
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "ResourceName",
+					"Description": "The name of a Resource.",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 128,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					},
+					"BaseAttributeReference": {
+						"Entity": "Resource.cdm.json/Resource",
+						"Name": "ResourceName"
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "ResourceDescription",
+					"Description": "The description of a Resource.",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 512,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					},
+					"BaseAttributeReference": {
+						"Entity": "Resource.cdm.json/Resource",
+						"Name": "ResourceDescription"
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "StandardRateAmount",
+					"Description": "The standard rate of the resource.",
+					"OriginDataTypeName": {
+						"TypeName": "decimal",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Precision": 18,
+						"Scale": 2,
+						"Properties": {
+							"HIVE_TYPE_STRING": "decimal"
+						}
+					},
+					"BaseAttributeReference": {
+						"Entity": "Resource.cdm.json/Resource",
+						"Name": "StandardRateAmount"
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "OvertimeRateAmount",
+					"Description": "The overtime rate of the resource.",
+					"OriginDataTypeName": {
+						"TypeName": "decimal",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Precision": 18,
+						"Scale": 2,
+						"Properties": {
+							"HIVE_TYPE_STRING": "decimal"
+						}
+					},
+					"BaseAttributeReference": {
+						"Entity": "Resource.cdm.json/Resource",
+						"Name": "OvertimeRateAmount"
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "PlanningStandardRateAmount",
+					"Description": "The standard rate amount for the resource for planning purposes.",
+					"OriginDataTypeName": {
+						"TypeName": "decimal",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Precision": 18,
+						"Scale": 2,
+						"Properties": {
+							"HIVE_TYPE_STRING": "decimal"
+						}
+					},
+					"BaseAttributeReference": {
+						"Entity": "Resource.cdm.json/Resource",
+						"Name": "PlanningStandardRateAmount"
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "PlanningOvertimeRateAmount",
+					"Description": "The overtime rate amount for the resource for planning purposes.",
+					"OriginDataTypeName": {
+						"TypeName": "decimal",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Precision": 18,
+						"Scale": 2,
+						"Properties": {
+							"HIVE_TYPE_STRING": "decimal"
+						}
+					},
+					"BaseAttributeReference": {
+						"Entity": "Resource.cdm.json/Resource",
+						"Name": "PlanningOvertimeRateAmount"
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "ResourceTypeId",
+					"Description": "The unique identifier of a Resource Type.",
+					"OriginDataTypeName": {
+						"TypeName": "integer",
+						"IsComplexType": false,
+						"IsNullable": false,
+						"Properties": {
+							"HIVE_TYPE_STRING": "integer"
+						}
+					},
+					"BaseAttributeReference": {
+						"Entity": "Resource.cdm.json/Resource",
+						"Name": "ResourceTypeId"
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "EmployeeId",
+					"Description": "The unique identifier of an Employee.",
+					"OriginDataTypeName": {
+						"TypeName": "integer",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Properties": {
+							"HIVE_TYPE_STRING": "integer"
+						}
+					},
+					"BaseAttributeReference": {
+						"Entity": "Resource.cdm.json/Resource",
+						"Name": "EmployeeId"
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "PartyId",
+					"Description": "The unique identifier of a Party.",
+					"OriginDataTypeName": {
+						"TypeName": "long",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Properties": {
+							"HIVE_TYPE_STRING": "long"
+						}
+					},
+					"BaseAttributeReference": {
+						"Entity": "Resource.cdm.json/Resource",
+						"Name": "PartyId"
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "ItemSku",
+					"Description": "The Stock Keeping Unit identifier, which is typically used for inventory-related activities.",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					},
+					"BaseAttributeReference": {
+						"Entity": "Resource.cdm.json/Resource",
+						"Name": "ItemSku"
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "AssetId",
+					"Description": "The unique identifier of an Asset.",
+					"OriginDataTypeName": {
+						"TypeName": "long",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Properties": {
+							"HIVE_TYPE_STRING": "long"
+						}
+					},
+					"BaseAttributeReference": {
+						"Entity": "Resource.cdm.json/Resource",
+						"Name": "AssetId"
+					},
+					"DeltaFormatInvalidMessages": []
+				}
+			],
+			"Format": {
+				"InputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+				"OutputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
+				"FormatType": "parquet",
+				"SerializeLib": "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+				"Properties": {
+					"path": "abfss://posynapsetest002fs@posynapsetest002str.dfs.core.windows.net/POC_Database/Resource",
+					"FormatTypeSetToDatabaseDefault": true
+				}
+			},
+			"Source": {
+				"Provider": "ADLS",
+				"Location": "abfss://posynapsetest002fs@posynapsetest002str.dfs.core.windows.net/POC_Database/Resource",
+				"Properties": {
+					"LinkedServiceName": "posynapsetest002-WorkspaceDefaultStorage",
+					"LocationSetToDatabaseDefault": true
+				}
+			},
+			"Properties": {
+				"textinputformat.record.delimiter": ",",
+				"compression": "{\"type\":\"None\",\"level\":\"optimal\"}",
+				"derivedModelAttributeInfo": "{\"attributeReferences\":{\"ResourceId\":{\"entity\":\"Resource.cdm.json/Resource\",\"name\":\"ResourceId\"},\"ResourceName\":{\"entity\":\"Resource.cdm.json/Resource\",\"name\":\"ResourceName\"},\"ResourceDescription\":{\"entity\":\"Resource.cdm.json/Resource\",\"name\":\"ResourceDescription\"},\"StandardRateAmount\":{\"entity\":\"Resource.cdm.json/Resource\",\"name\":\"StandardRateAmount\"},\"OvertimeRateAmount\":{\"entity\":\"Resource.cdm.json/Resource\",\"name\":\"OvertimeRateAmount\"},\"PlanningStandardRateAmount\":{\"entity\":\"Resource.cdm.json/Resource\",\"name\":\"PlanningStandardRateAmount\"},\"PlanningOvertimeRateAmount\":{\"entity\":\"Resource.cdm.json/Resource\",\"name\":\"PlanningOvertimeRateAmount\"},\"ResourceTypeId\":{\"entity\":\"Resource.cdm.json/Resource\",\"name\":\"ResourceTypeId\"},\"EmployeeId\":{\"entity\":\"Resource.cdm.json/Resource\",\"name\":\"EmployeeId\"},\"PartyId\":{\"entity\":\"Resource.cdm.json/Resource\",\"name\":\"PartyId\"},\"ItemSku\":{\"entity\":\"Resource.cdm.json/Resource\",\"name\":\"ItemSku\"},\"AssetId\":{\"entity\":\"Resource.cdm.json/Resource\",\"name\":\"AssetId\"}}}"
+			},
+			"Compressed": false,
+			"IsStoredAsSubdirectories": false
+		},
+		"Properties": {
+			"DerivedModelEntityInfo": "{\"entityDirectives\":{\"baseEntityReference\":{\"name\":\"Resource\",\"path\":\"Resource.cdm.json/Resource\"},\"description\":\"Any tangible support such as, a person, tool, supply item or facility used in the performance of a project. Human resources are people.\",\"primaryKey\":[\"ResourceId\"],\"projectionInfo\":{\"attributes\":[{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"Resource.cdm.json/Resource\",\"name\":\"ResourceId\"},\"dataType\":\"integer\",\"description\":\"The unique identifier of a Resource.\",\"isNullable\":false,\"name\":\"ResourceId\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"Resource.cdm.json/Resource\",\"name\":\"ResourceName\"},\"dataType\":\"string\",\"dataTypeLength\":128,\"description\":\"The name of a Resource.\",\"isNullable\":true,\"name\":\"ResourceName\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"Resource.cdm.json/Resource\",\"name\":\"ResourceDescription\"},\"dataType\":\"string\",\"dataTypeLength\":512,\"description\":\"The description of a Resource.\",\"isNullable\":true,\"name\":\"ResourceDescription\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"Resource.cdm.json/Resource\",\"name\":\"StandardRateAmount\"},\"dataType\":\"decimal\",\"dataTypeLength\":18,\"description\":\"The standard rate of the resource.\",\"isNullable\":true,\"scale\":2,\"name\":\"StandardRateAmount\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"Resource.cdm.json/Resource\",\"name\":\"OvertimeRateAmount\"},\"dataType\":\"decimal\",\"dataTypeLength\":18,\"description\":\"The overtime rate of the resource.\",\"isNullable\":true,\"scale\":2,\"name\":\"OvertimeRateAmount\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"Resource.cdm.json/Resource\",\"name\":\"PlanningStandardRateAmount\"},\"dataType\":\"decimal\",\"dataTypeLength\":18,\"description\":\"The standard rate amount for the resource for planning purposes.\",\"isNullable\":true,\"scale\":2,\"name\":\"PlanningStandardRateAmount\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"Resource.cdm.json/Resource\",\"name\":\"PlanningOvertimeRateAmount\"},\"dataType\":\"decimal\",\"dataTypeLength\":18,\"description\":\"The overtime rate amount for the resource for planning purposes.\",\"isNullable\":true,\"scale\":2,\"name\":\"PlanningOvertimeRateAmount\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"Resource.cdm.json/Resource\",\"name\":\"ResourceTypeId\"},\"dataType\":\"integer\",\"description\":\"The unique identifier of a Resource Type.\",\"isNullable\":false,\"name\":\"ResourceTypeId\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"Resource.cdm.json/Resource\",\"name\":\"EmployeeId\"},\"dataType\":\"integer\",\"description\":\"The unique identifier of an Employee.\",\"isNullable\":true,\"name\":\"EmployeeId\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"Resource.cdm.json/Resource\",\"name\":\"PartyId\"},\"dataType\":\"long\",\"description\":\"The unique identifier of a Party.\",\"isNullable\":true,\"name\":\"PartyId\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"Resource.cdm.json/Resource\",\"name\":\"ItemSku\"},\"dataType\":\"string\",\"dataTypeLength\":20,\"description\":\"The Stock Keeping Unit identifier, which is typically used for inventory-related activities.\",\"isNullable\":true,\"name\":\"ItemSku\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"Resource.cdm.json/Resource\",\"name\":\"AssetId\"},\"dataType\":\"long\",\"description\":\"The unique identifier of an Asset.\",\"isNullable\":true,\"name\":\"AssetId\"}]}}}",
+			"Description": "Any tangible support such as, a person, tool, supply item or facility used in the performance of a project. Human resources are people.",
+			"DisplayFolderInfo": "{\"name\":\"Project Management\",\"colorCode\":\"#BD4B37\"}",
+			"PrimaryKeys": "ResourceId",
+			"spark.sql.sources.provider": "parquet"
+		},
+		"Retention": 0,
+		"Temporary": false,
+		"IsRewriteEnabled": false
+	},
+	"type": "TABLE"
+}

@@ -1,0 +1,26 @@
+{
+	"name": "relationship-ticfsfxqcs",
+	"properties": {
+		"Name": "relationship-ticfsfxqcs",
+		"EntityType": "RELATIONSHIP",
+		"Namespace": {
+			"DatabaseName": "POC_Database"
+		},
+		"Origin": {
+			"Type": "SPARK"
+		},
+		"FromTableName": "Task",
+		"ToTableName": "TaskDocument",
+		"ColumnRelationshipInformations": [
+			{
+				"FromColumnName": "TaskId",
+				"ToColumnName": "TaskId"
+			}
+		],
+		"RelationshipType": 0,
+		"Properties": {
+			"DerivedModelRelationshipInfo": "{\"baseRelationship\":{\"fromEntity\":\"Task.cdm.json/Task\",\"toEntity\":\"TaskDocument.cdm.json/TaskDocument\",\"joinPairs\":[{\"fromAttribute\":\"TaskId\",\"toAttribute\":\"TaskId\"}]}}"
+		}
+	},
+	"type": "RELATIONSHIP"
+}

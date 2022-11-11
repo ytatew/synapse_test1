@@ -1,0 +1,230 @@
+{
+	"name": "POC_Project_Resource",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "poc_resource",
+						"type": "DatasetReference"
+					},
+					"name": "POCResource1"
+				},
+				{
+					"dataset": {
+						"referenceName": "poc_resource",
+						"type": "DatasetReference"
+					},
+					"name": "POCResource2"
+				},
+				{
+					"dataset": {
+						"referenceName": "poc_resource",
+						"type": "DatasetReference"
+					},
+					"name": "POCResource3"
+				},
+				{
+					"dataset": {
+						"referenceName": "poc_resource",
+						"type": "DatasetReference"
+					},
+					"name": "POCResource4"
+				}
+			],
+			"sinks": [
+				{
+					"name": "TaskResource"
+				},
+				{
+					"name": "Employee"
+				},
+				{
+					"name": "Resource"
+				},
+				{
+					"name": "ResourceType"
+				}
+			],
+			"transformations": [
+				{
+					"name": "flatTaskResource"
+				},
+				{
+					"name": "flatEmployee"
+				},
+				{
+					"name": "flatResource"
+				},
+				{
+					"name": "flatResourceType"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          emloyeeid as (emloyeeid as short, emloyeename as string)[],",
+				"          resource as (employeeid as short, resourceid as short, resourcename as string, resourcetypeid as short)[],",
+				"          resourcetype as (resourcetypeid as short, resourcetypename as string)[],",
+				"          taskresource as (resourceid as short, taskid as short)[]",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     documentForm: 'singleDocument') ~> POCResource1",
+				"source(output(",
+				"          emloyeeid as (emloyeeid as short, emloyeename as string)[],",
+				"          resource as (employeeid as short, resourceid as short, resourcename as string, resourcetypeid as short)[],",
+				"          resourcetype as (resourcetypeid as short, resourcetypename as string)[],",
+				"          taskresource as (resourceid as short, taskid as short)[]",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     documentForm: 'singleDocument') ~> POCResource2",
+				"source(output(",
+				"          emloyeeid as (emloyeeid as short, emloyeename as string)[],",
+				"          resource as (employeeid as short, resourceid as short, resourcename as string, resourcetypeid as short)[],",
+				"          resourcetype as (resourcetypeid as short, resourcetypename as string)[],",
+				"          taskresource as (resourceid as short, taskid as short)[]",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     documentForm: 'singleDocument') ~> POCResource3",
+				"source(output(",
+				"          emloyeeid as (emloyeeid as short, emloyeename as string)[],",
+				"          resource as (employeeid as short, resourceid as short, resourcename as string, resourcetypeid as short)[],",
+				"          resourcetype as (resourcetypeid as short, resourcetypename as string)[],",
+				"          taskresource as (resourceid as short, taskid as short)[]",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     documentForm: 'singleDocument') ~> POCResource4",
+				"POCResource1 foldDown(unroll(taskresource),",
+				"     mapColumn(",
+				"          resourceid = taskresource.resourceid,",
+				"          taskid = taskresource.taskid",
+				"     ),",
+				"     skipDuplicateMapInputs: false,",
+				"     skipDuplicateMapOutputs: false) ~> flatTaskResource",
+				"POCResource2 foldDown(unroll(emloyeeid),",
+				"     mapColumn(",
+				"          emloyeeid = emloyeeid.emloyeeid,",
+				"          emloyeename = emloyeeid.emloyeename",
+				"     ),",
+				"     skipDuplicateMapInputs: false,",
+				"     skipDuplicateMapOutputs: false) ~> flatEmployee",
+				"POCResource3 foldDown(unroll(resource),",
+				"     mapColumn(",
+				"          employeeid = resource.employeeid,",
+				"          resourceid = resource.resourceid,",
+				"          resourcename = resource.resourcename,",
+				"          resourcetypeid = resource.resourcetypeid",
+				"     ),",
+				"     skipDuplicateMapInputs: false,",
+				"     skipDuplicateMapOutputs: false) ~> flatResource",
+				"POCResource4 foldDown(unroll(resourcetype),",
+				"     mapColumn(",
+				"          resourcetypeid = resourcetype.resourcetypeid,",
+				"          resourcetypename = resourcetype.resourcetypename",
+				"     ),",
+				"     skipDuplicateMapInputs: false,",
+				"     skipDuplicateMapOutputs: false) ~> flatResourceType",
+				"flatTaskResource sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     store: 'synapse',",
+				"     databaseType: 'spark',",
+				"     format: 'table',",
+				"     database: 'POC_Database',",
+				"     tableName: 'TaskResource',",
+				"     input(",
+				"          TaskId as integer,",
+				"          ResourceId as integer,",
+				"          ResourceNumber as integer,",
+				"          ResourceAmount as decimal(18,2),",
+				"          ResourceQuantity as decimal(18,2)",
+				"     ),",
+				"     mapColumn(",
+				"          TaskId = taskid,",
+				"          ResourceId = resourceid",
+				"     )) ~> TaskResource",
+				"flatEmployee sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     store: 'synapse',",
+				"     databaseType: 'spark',",
+				"     format: 'table',",
+				"     database: 'POC_Database',",
+				"     tableName: 'Employee',",
+				"     input(",
+				"          EmployeeId as integer,",
+				"          EmployeeName as string,",
+				"          DateOfBirth as date,",
+				"          DateOfDeath as date,",
+				"          EmployeeStandardCostAmount as decimal(18,2),",
+				"          EmployeeOvertimeCostAmount as decimal(18,2),",
+				"          EmployeeHireDate as date,",
+				"          HighlyCompensatedEmployeeIndicator as boolean,",
+				"          KeyEmployeeIndicator as boolean,",
+				"          ExemptEmployeeIndicator as boolean,",
+				"          NonexemptEmployeeIndicator as boolean,",
+				"          AlienStatusId as integer,",
+				"          SexId as integer,",
+				"          GenderId as integer,",
+				"          RacialCategoryId as integer,",
+				"          EthnicCategoryId as integer,",
+				"          EmploymentLeadSourceId as integer,",
+				"          SecurityClearanceId as integer,",
+				"          SecurityLevelId as integer,",
+				"          PartyId as long",
+				"     ),",
+				"     mapColumn(",
+				"          EmployeeId = emloyeeid,",
+				"          EmployeeName = emloyeename",
+				"     )) ~> Employee",
+				"flatResource sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     store: 'synapse',",
+				"     databaseType: 'spark',",
+				"     format: 'table',",
+				"     database: 'POC_Database',",
+				"     tableName: 'Resource',",
+				"     input(",
+				"          ResourceId as integer,",
+				"          ResourceName as string,",
+				"          ResourceDescription as string,",
+				"          StandardRateAmount as decimal(18,2),",
+				"          OvertimeRateAmount as decimal(18,2),",
+				"          PlanningStandardRateAmount as decimal(18,2),",
+				"          PlanningOvertimeRateAmount as decimal(18,2),",
+				"          ResourceTypeId as integer,",
+				"          EmployeeId as integer,",
+				"          PartyId as long,",
+				"          ItemSku as string,",
+				"          AssetId as long",
+				"     ),",
+				"     mapColumn(",
+				"          ResourceId = resourceid,",
+				"          ResourceName = resourcename",
+				"     )) ~> Resource",
+				"flatResourceType sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     store: 'synapse',",
+				"     databaseType: 'spark',",
+				"     format: 'table',",
+				"     database: 'POC_Database',",
+				"     tableName: 'ResourceType',",
+				"     input(",
+				"          ResourceTypeId as integer,",
+				"          ResourceTypeName as string,",
+				"          ResourceTypeDescription as string",
+				"     ),",
+				"     mapColumn(",
+				"          ResourceTypeId = resourcetypeid,",
+				"          ResourceTypeName = resourcetypename",
+				"     )) ~> ResourceType"
+			]
+		}
+	}
+}

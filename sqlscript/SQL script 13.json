@@ -1,0 +1,17 @@
+{
+	"name": "SQL script 13",
+	"properties": {
+		"content": {
+			"query": "SELECT TOP (100) [TaskId]\n,[TaskName]\n,[TaskDescription]\n,[TaskSpecificationStatement]\n,[SequenceNumber]\n,[MilestoneIndicator]\n,[CriticalPathTaskIndicator]\n,[TaskNote]\n,[TaskPlannedStartTimestamp]\n,[TaskScheduledStartTimestamp]\n,[TaskActualStartTimestamp]\n,[TaskPlannedCompletionTimestamp]\n,[TaskScheduledCompletionTimestamp]\n,[TaskActualCompletionTimestamp]\n,[TaskEarliestStartTimestamp]\n,[TaskLatestStartTimestamp]\n,[TaskEarliestCompletionTimestamp]\n,[TaskLatestCompletionTimestamp]\n,[TaskFloatHours]\n,[PlannedBillableLaborUnits]\n,[ActualBillableLaborUnits]\n,[PlannedBillableChargesAmount]\n,[ActualBillableChargesAmount]\n,[PlannedCostsAmount]\n,[ActualCostsAmount]\n,[TaskTypeId]\n,[LocationId]\n,[ResponsibilityCenterId]\n,[TaskGlAccountNumber]\n FROM [POC_Database].[dbo].[Task]",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "POC_Database",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

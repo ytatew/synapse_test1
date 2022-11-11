@@ -1,0 +1,197 @@
+{
+	"name": "ProjectActivity",
+	"properties": {
+		"Name": "ProjectActivity",
+		"EntityType": "TABLE",
+		"Namespace": {
+			"DatabaseName": "POC_Database"
+		},
+		"Description": "Any work performed in conjunction with a project. This is frequently analogous to a task but may be used to group or consolidate tasks.",
+		"TableType": "EXTERNAL",
+		"Origin": {
+			"Type": "SPARK"
+		},
+		"StorageDescriptor": {
+			"Columns": [
+				{
+					"Name": "ProjectId",
+					"Description": "The unique identifier of a Project.",
+					"OriginDataTypeName": {
+						"TypeName": "integer",
+						"IsComplexType": false,
+						"IsNullable": false,
+						"Properties": {
+							"HIVE_TYPE_STRING": "integer"
+						}
+					},
+					"BaseAttributeReference": {
+						"Entity": "ProjectActivity.cdm.json/ProjectActivity",
+						"Name": "ProjectId"
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "ActivityId",
+					"Description": "The unique identifier of an Activity.",
+					"OriginDataTypeName": {
+						"TypeName": "integer",
+						"IsComplexType": false,
+						"IsNullable": false,
+						"Properties": {
+							"HIVE_TYPE_STRING": "integer"
+						}
+					},
+					"BaseAttributeReference": {
+						"Entity": "ProjectActivity.cdm.json/ProjectActivity",
+						"Name": "ActivityId"
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "ActivityName",
+					"Description": "The name of an Activity.",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 128,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					},
+					"BaseAttributeReference": {
+						"Entity": "ProjectActivity.cdm.json/ProjectActivity",
+						"Name": "ActivityName"
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "ActivityDescription",
+					"Description": "The description of an Activity.",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 512,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					},
+					"BaseAttributeReference": {
+						"Entity": "ProjectActivity.cdm.json/ProjectActivity",
+						"Name": "ActivityDescription"
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "ActivityPlannedStartTimestamp",
+					"Description": "The planned start timestamp of an activity.",
+					"OriginDataTypeName": {
+						"TypeName": "timestamp",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Properties": {
+							"TimestampFormat": "YYYY-MM-DD HH:MM:SS.fffffffff",
+							"HIVE_TYPE_STRING": "timestamp"
+						}
+					},
+					"BaseAttributeReference": {
+						"Entity": "ProjectActivity.cdm.json/ProjectActivity",
+						"Name": "ActivityPlannedStartTimestamp"
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "ActivityActualStartTimestamp",
+					"Description": "The actual start timestamp of an activity.",
+					"OriginDataTypeName": {
+						"TypeName": "timestamp",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Properties": {
+							"TimestampFormat": "YYYY-MM-DD HH:MM:SS.fffffffff",
+							"HIVE_TYPE_STRING": "timestamp"
+						}
+					},
+					"BaseAttributeReference": {
+						"Entity": "ProjectActivity.cdm.json/ProjectActivity",
+						"Name": "ActivityActualStartTimestamp"
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "ActivityPlannedEndTimestamp",
+					"Description": "The planned end timestamp of an activity.",
+					"OriginDataTypeName": {
+						"TypeName": "timestamp",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Properties": {
+							"TimestampFormat": "YYYY-MM-DD HH:MM:SS.fffffffff",
+							"HIVE_TYPE_STRING": "timestamp"
+						}
+					},
+					"BaseAttributeReference": {
+						"Entity": "ProjectActivity.cdm.json/ProjectActivity",
+						"Name": "ActivityPlannedEndTimestamp"
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "ActivityActualEndTimestamp",
+					"Description": "The actual end timestamp of an activity.",
+					"OriginDataTypeName": {
+						"TypeName": "timestamp",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Properties": {
+							"TimestampFormat": "YYYY-MM-DD HH:MM:SS.fffffffff",
+							"HIVE_TYPE_STRING": "timestamp"
+						}
+					},
+					"BaseAttributeReference": {
+						"Entity": "ProjectActivity.cdm.json/ProjectActivity",
+						"Name": "ActivityActualEndTimestamp"
+					},
+					"DeltaFormatInvalidMessages": []
+				}
+			],
+			"Format": {
+				"InputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+				"OutputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
+				"FormatType": "parquet",
+				"SerializeLib": "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+				"Properties": {
+					"path": "abfss://posynapsetest002fs@posynapsetest002str.dfs.core.windows.net/POC_Database/ProjectActivity",
+					"FormatTypeSetToDatabaseDefault": true
+				}
+			},
+			"Source": {
+				"Provider": "ADLS",
+				"Location": "abfss://posynapsetest002fs@posynapsetest002str.dfs.core.windows.net/POC_Database/ProjectActivity",
+				"Properties": {
+					"LinkedServiceName": "posynapsetest002-WorkspaceDefaultStorage",
+					"LocationSetToDatabaseDefault": true
+				}
+			},
+			"Properties": {
+				"textinputformat.record.delimiter": ",",
+				"compression": "{\"type\":\"None\",\"level\":\"optimal\"}",
+				"derivedModelAttributeInfo": "{\"attributeReferences\":{\"ProjectId\":{\"entity\":\"ProjectActivity.cdm.json/ProjectActivity\",\"name\":\"ProjectId\"},\"ActivityId\":{\"entity\":\"ProjectActivity.cdm.json/ProjectActivity\",\"name\":\"ActivityId\"},\"ActivityName\":{\"entity\":\"ProjectActivity.cdm.json/ProjectActivity\",\"name\":\"ActivityName\"},\"ActivityDescription\":{\"entity\":\"ProjectActivity.cdm.json/ProjectActivity\",\"name\":\"ActivityDescription\"},\"ActivityPlannedStartTimestamp\":{\"entity\":\"ProjectActivity.cdm.json/ProjectActivity\",\"name\":\"ActivityPlannedStartTimestamp\"},\"ActivityActualStartTimestamp\":{\"entity\":\"ProjectActivity.cdm.json/ProjectActivity\",\"name\":\"ActivityActualStartTimestamp\"},\"ActivityPlannedEndTimestamp\":{\"entity\":\"ProjectActivity.cdm.json/ProjectActivity\",\"name\":\"ActivityPlannedEndTimestamp\"},\"ActivityActualEndTimestamp\":{\"entity\":\"ProjectActivity.cdm.json/ProjectActivity\",\"name\":\"ActivityActualEndTimestamp\"}}}"
+			},
+			"Compressed": false,
+			"IsStoredAsSubdirectories": false
+		},
+		"Properties": {
+			"DerivedModelEntityInfo": "{\"entityDirectives\":{\"baseEntityReference\":{\"name\":\"ProjectActivity\",\"path\":\"ProjectActivity.cdm.json/ProjectActivity\"},\"description\":\"Any work performed in conjunction with a project. This is frequently analogous to a task but may be used to group or consolidate tasks.\",\"primaryKey\":[\"ProjectId\",\"ActivityId\"],\"projectionInfo\":{\"attributes\":[{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"ProjectActivity.cdm.json/ProjectActivity\",\"name\":\"ProjectId\"},\"dataType\":\"integer\",\"description\":\"The unique identifier of a Project.\",\"isNullable\":false,\"name\":\"ProjectId\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"ProjectActivity.cdm.json/ProjectActivity\",\"name\":\"ActivityId\"},\"dataType\":\"integer\",\"description\":\"The unique identifier of an Activity.\",\"isNullable\":false,\"name\":\"ActivityId\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"ProjectActivity.cdm.json/ProjectActivity\",\"name\":\"ActivityName\"},\"dataType\":\"string\",\"dataTypeLength\":128,\"description\":\"The name of an Activity.\",\"isNullable\":true,\"name\":\"ActivityName\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"ProjectActivity.cdm.json/ProjectActivity\",\"name\":\"ActivityDescription\"},\"dataType\":\"string\",\"dataTypeLength\":512,\"description\":\"The description of an Activity.\",\"isNullable\":true,\"name\":\"ActivityDescription\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"ProjectActivity.cdm.json/ProjectActivity\",\"name\":\"ActivityPlannedStartTimestamp\"},\"dataType\":\"timestamp\",\"description\":\"The planned start timestamp of an activity.\",\"isNullable\":true,\"name\":\"ActivityPlannedStartTimestamp\",\"timestampFormat\":\"YYYY-MM-DD HH:MM:SS.fffffffff\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"ProjectActivity.cdm.json/ProjectActivity\",\"name\":\"ActivityActualStartTimestamp\"},\"dataType\":\"timestamp\",\"description\":\"The actual start timestamp of an activity.\",\"isNullable\":true,\"name\":\"ActivityActualStartTimestamp\",\"timestampFormat\":\"YYYY-MM-DD HH:MM:SS.fffffffff\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"ProjectActivity.cdm.json/ProjectActivity\",\"name\":\"ActivityPlannedEndTimestamp\"},\"dataType\":\"timestamp\",\"description\":\"The planned end timestamp of an activity.\",\"isNullable\":true,\"name\":\"ActivityPlannedEndTimestamp\",\"timestampFormat\":\"YYYY-MM-DD HH:MM:SS.fffffffff\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"ProjectActivity.cdm.json/ProjectActivity\",\"name\":\"ActivityActualEndTimestamp\"},\"dataType\":\"timestamp\",\"description\":\"The actual end timestamp of an activity.\",\"isNullable\":true,\"name\":\"ActivityActualEndTimestamp\",\"timestampFormat\":\"YYYY-MM-DD HH:MM:SS.fffffffff\"}]}}}",
+			"Description": "Any work performed in conjunction with a project. This is frequently analogous to a task but may be used to group or consolidate tasks.",
+			"DisplayFolderInfo": "{\"name\":\"Project Management\",\"colorCode\":\"#BD4B37\"}",
+			"PrimaryKeys": "ProjectId,ActivityId",
+			"spark.sql.sources.provider": "parquet"
+		},
+		"Retention": 0,
+		"Temporary": false,
+		"IsRewriteEnabled": false
+	},
+	"type": "TABLE"
+}

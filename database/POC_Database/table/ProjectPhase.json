@@ -1,0 +1,214 @@
+{
+	"name": "ProjectPhase",
+	"properties": {
+		"Name": "ProjectPhase",
+		"EntityType": "TABLE",
+		"Namespace": {
+			"DatabaseName": "POC_Database"
+		},
+		"Description": "A particular phase of an engagement, project or endeavor that is undertaken to create a unique product or service.",
+		"TableType": "EXTERNAL",
+		"Origin": {
+			"Type": "SPARK"
+		},
+		"StorageDescriptor": {
+			"Columns": [
+				{
+					"Name": "ProjectId",
+					"Description": "The unique identifier of a Project.",
+					"OriginDataTypeName": {
+						"TypeName": "integer",
+						"IsComplexType": false,
+						"IsNullable": false,
+						"Properties": {
+							"HIVE_TYPE_STRING": "integer"
+						}
+					},
+					"BaseAttributeReference": {
+						"Entity": "ProjectPhase.cdm.json/ProjectPhase",
+						"Name": "ProjectId"
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "ProjectPhaseId",
+					"Description": "The unique identifier of a Project Phase.",
+					"OriginDataTypeName": {
+						"TypeName": "integer",
+						"IsComplexType": false,
+						"IsNullable": false,
+						"Properties": {
+							"HIVE_TYPE_STRING": "integer"
+						}
+					},
+					"BaseAttributeReference": {
+						"Entity": "ProjectPhase.cdm.json/ProjectPhase",
+						"Name": "ProjectPhaseId"
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "ProjectPhaseTypeId",
+					"Description": "The unique identifier of a Proposal Type.",
+					"OriginDataTypeName": {
+						"TypeName": "integer",
+						"IsComplexType": false,
+						"IsNullable": false,
+						"Properties": {
+							"HIVE_TYPE_STRING": "integer"
+						}
+					},
+					"BaseAttributeReference": {
+						"Entity": "ProjectPhase.cdm.json/ProjectPhase",
+						"Name": "ProjectPhaseTypeId"
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "ProjectPhaseName",
+					"Description": "The name of the project phase.",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 128,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					},
+					"BaseAttributeReference": {
+						"Entity": "ProjectPhase.cdm.json/ProjectPhase",
+						"Name": "ProjectPhaseName"
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "ProjectPhaseDescription",
+					"Description": "The description of the project phase.",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 512,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					},
+					"BaseAttributeReference": {
+						"Entity": "ProjectPhase.cdm.json/ProjectPhase",
+						"Name": "ProjectPhaseDescription"
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "ProjectPhasePlannedStartDate",
+					"Description": "The planned start date of the project phase.",
+					"OriginDataTypeName": {
+						"TypeName": "date",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Properties": {
+							"DateFormat": "YYYY-MM-DD",
+							"HIVE_TYPE_STRING": "date"
+						}
+					},
+					"BaseAttributeReference": {
+						"Entity": "ProjectPhase.cdm.json/ProjectPhase",
+						"Name": "ProjectPhasePlannedStartDate"
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "ProjectPhasePlannedFinishDate",
+					"Description": "The planned finish date of the project phase.",
+					"OriginDataTypeName": {
+						"TypeName": "date",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Properties": {
+							"DateFormat": "YYYY-MM-DD",
+							"HIVE_TYPE_STRING": "date"
+						}
+					},
+					"BaseAttributeReference": {
+						"Entity": "ProjectPhase.cdm.json/ProjectPhase",
+						"Name": "ProjectPhasePlannedFinishDate"
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "ProjectPhaseActualStartDate",
+					"Description": "The actual start date of the project phase.",
+					"OriginDataTypeName": {
+						"TypeName": "date",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Properties": {
+							"DateFormat": "YYYY-MM-DD",
+							"HIVE_TYPE_STRING": "date"
+						}
+					},
+					"BaseAttributeReference": {
+						"Entity": "ProjectPhase.cdm.json/ProjectPhase",
+						"Name": "ProjectPhaseActualStartDate"
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "ProjectPhaseActualFinishDate",
+					"Description": "The actual finish date of the project phase.",
+					"OriginDataTypeName": {
+						"TypeName": "date",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Properties": {
+							"DateFormat": "YYYY-MM-DD",
+							"HIVE_TYPE_STRING": "date"
+						}
+					},
+					"BaseAttributeReference": {
+						"Entity": "ProjectPhase.cdm.json/ProjectPhase",
+						"Name": "ProjectPhaseActualFinishDate"
+					},
+					"DeltaFormatInvalidMessages": []
+				}
+			],
+			"Format": {
+				"InputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+				"OutputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
+				"FormatType": "parquet",
+				"SerializeLib": "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+				"Properties": {
+					"path": "abfss://posynapsetest002fs@posynapsetest002str.dfs.core.windows.net/POC_Database/ProjectPhase",
+					"FormatTypeSetToDatabaseDefault": true
+				}
+			},
+			"Source": {
+				"Provider": "ADLS",
+				"Location": "abfss://posynapsetest002fs@posynapsetest002str.dfs.core.windows.net/POC_Database/ProjectPhase",
+				"Properties": {
+					"LinkedServiceName": "posynapsetest002-WorkspaceDefaultStorage",
+					"LocationSetToDatabaseDefault": true
+				}
+			},
+			"Properties": {
+				"textinputformat.record.delimiter": ",",
+				"compression": "{\"type\":\"None\",\"level\":\"optimal\"}",
+				"derivedModelAttributeInfo": "{\"attributeReferences\":{\"ProjectId\":{\"entity\":\"ProjectPhase.cdm.json/ProjectPhase\",\"name\":\"ProjectId\"},\"ProjectPhaseId\":{\"entity\":\"ProjectPhase.cdm.json/ProjectPhase\",\"name\":\"ProjectPhaseId\"},\"ProjectPhaseTypeId\":{\"entity\":\"ProjectPhase.cdm.json/ProjectPhase\",\"name\":\"ProjectPhaseTypeId\"},\"ProjectPhaseName\":{\"entity\":\"ProjectPhase.cdm.json/ProjectPhase\",\"name\":\"ProjectPhaseName\"},\"ProjectPhaseDescription\":{\"entity\":\"ProjectPhase.cdm.json/ProjectPhase\",\"name\":\"ProjectPhaseDescription\"},\"ProjectPhasePlannedStartDate\":{\"entity\":\"ProjectPhase.cdm.json/ProjectPhase\",\"name\":\"ProjectPhasePlannedStartDate\"},\"ProjectPhasePlannedFinishDate\":{\"entity\":\"ProjectPhase.cdm.json/ProjectPhase\",\"name\":\"ProjectPhasePlannedFinishDate\"},\"ProjectPhaseActualStartDate\":{\"entity\":\"ProjectPhase.cdm.json/ProjectPhase\",\"name\":\"ProjectPhaseActualStartDate\"},\"ProjectPhaseActualFinishDate\":{\"entity\":\"ProjectPhase.cdm.json/ProjectPhase\",\"name\":\"ProjectPhaseActualFinishDate\"}}}"
+			},
+			"Compressed": false,
+			"IsStoredAsSubdirectories": false
+		},
+		"Properties": {
+			"DerivedModelEntityInfo": "{\"entityDirectives\":{\"baseEntityReference\":{\"name\":\"ProjectPhase\",\"path\":\"ProjectPhase.cdm.json/ProjectPhase\"},\"description\":\"A particular phase of an engagement, project or endeavor that is undertaken to create a unique product or service.\",\"primaryKey\":[\"ProjectId\",\"ProjectPhaseId\"],\"projectionInfo\":{\"attributes\":[{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"ProjectPhase.cdm.json/ProjectPhase\",\"name\":\"ProjectId\"},\"dataType\":\"integer\",\"description\":\"The unique identifier of a Project.\",\"isNullable\":false,\"name\":\"ProjectId\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"ProjectPhase.cdm.json/ProjectPhase\",\"name\":\"ProjectPhaseId\"},\"dataType\":\"integer\",\"description\":\"The unique identifier of a Project Phase.\",\"isNullable\":false,\"name\":\"ProjectPhaseId\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"ProjectPhase.cdm.json/ProjectPhase\",\"name\":\"ProjectPhaseTypeId\"},\"dataType\":\"integer\",\"description\":\"The unique identifier of a Proposal Type.\",\"isNullable\":false,\"name\":\"ProjectPhaseTypeId\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"ProjectPhase.cdm.json/ProjectPhase\",\"name\":\"ProjectPhaseName\"},\"dataType\":\"string\",\"dataTypeLength\":128,\"description\":\"The name of the project phase.\",\"isNullable\":true,\"name\":\"ProjectPhaseName\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"ProjectPhase.cdm.json/ProjectPhase\",\"name\":\"ProjectPhaseDescription\"},\"dataType\":\"string\",\"dataTypeLength\":512,\"description\":\"The description of the project phase.\",\"isNullable\":true,\"name\":\"ProjectPhaseDescription\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"ProjectPhase.cdm.json/ProjectPhase\",\"name\":\"ProjectPhasePlannedStartDate\"},\"dataType\":\"date\",\"dateFormat\":\"YYYY-MM-DD\",\"description\":\"The planned start date of the project phase.\",\"isNullable\":true,\"name\":\"ProjectPhasePlannedStartDate\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"ProjectPhase.cdm.json/ProjectPhase\",\"name\":\"ProjectPhasePlannedFinishDate\"},\"dataType\":\"date\",\"dateFormat\":\"YYYY-MM-DD\",\"description\":\"The planned finish date of the project phase.\",\"isNullable\":true,\"name\":\"ProjectPhasePlannedFinishDate\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"ProjectPhase.cdm.json/ProjectPhase\",\"name\":\"ProjectPhaseActualStartDate\"},\"dataType\":\"date\",\"dateFormat\":\"YYYY-MM-DD\",\"description\":\"The actual start date of the project phase.\",\"isNullable\":true,\"name\":\"ProjectPhaseActualStartDate\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"ProjectPhase.cdm.json/ProjectPhase\",\"name\":\"ProjectPhaseActualFinishDate\"},\"dataType\":\"date\",\"dateFormat\":\"YYYY-MM-DD\",\"description\":\"The actual finish date of the project phase.\",\"isNullable\":true,\"name\":\"ProjectPhaseActualFinishDate\"}]}}}",
+			"Description": "A particular phase of an engagement, project or endeavor that is undertaken to create a unique product or service.",
+			"DisplayFolderInfo": "{\"name\":\"Project Management\",\"colorCode\":\"#BD4B37\"}",
+			"PrimaryKeys": "ProjectId,ProjectPhaseId",
+			"spark.sql.sources.provider": "parquet"
+		},
+		"Retention": 0,
+		"Temporary": false,
+		"IsRewriteEnabled": false
+	},
+	"type": "TABLE"
+}

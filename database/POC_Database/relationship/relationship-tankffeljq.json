@@ -1,0 +1,26 @@
+{
+	"name": "relationship-tankffeljq",
+	"properties": {
+		"Name": "relationship-tankffeljq",
+		"EntityType": "RELATIONSHIP",
+		"Namespace": {
+			"DatabaseName": "POC_Database"
+		},
+		"Origin": {
+			"Type": "SPARK"
+		},
+		"FromTableName": "Resource",
+		"ToTableName": "TaskResource",
+		"ColumnRelationshipInformations": [
+			{
+				"FromColumnName": "ResourceId",
+				"ToColumnName": "ResourceId"
+			}
+		],
+		"RelationshipType": 0,
+		"Properties": {
+			"DerivedModelRelationshipInfo": "{\"baseRelationship\":{\"fromEntity\":\"Resource.cdm.json/Resource\",\"toEntity\":\"TaskResource.cdm.json/TaskResource\",\"joinPairs\":[{\"fromAttribute\":\"ResourceId\",\"toAttribute\":\"ResourceId\"}]}}"
+		}
+	},
+	"type": "RELATIONSHIP"
+}

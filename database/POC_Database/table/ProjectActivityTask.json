@@ -1,0 +1,141 @@
+{
+	"name": "ProjectActivityTask",
+	"properties": {
+		"Name": "ProjectActivityTask",
+		"EntityType": "TABLE",
+		"Namespace": {
+			"DatabaseName": "POC_Database"
+		},
+		"Description": "The task(s) consolidated by or grouped by the Activity.",
+		"TableType": "EXTERNAL",
+		"Origin": {
+			"Type": "SPARK"
+		},
+		"StorageDescriptor": {
+			"Columns": [
+				{
+					"Name": "ProjectId",
+					"Description": "The unique identifier of a Project.",
+					"OriginDataTypeName": {
+						"TypeName": "integer",
+						"IsComplexType": false,
+						"IsNullable": false,
+						"Properties": {
+							"HIVE_TYPE_STRING": "integer"
+						}
+					},
+					"BaseAttributeReference": {
+						"Entity": "ProjectActivityTask.cdm.json/ProjectActivityTask",
+						"Name": "ProjectId"
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "ActivityId",
+					"Description": "The unique identifier of an Activity.",
+					"OriginDataTypeName": {
+						"TypeName": "integer",
+						"IsComplexType": false,
+						"IsNullable": false,
+						"Properties": {
+							"HIVE_TYPE_STRING": "integer"
+						}
+					},
+					"BaseAttributeReference": {
+						"Entity": "ProjectActivityTask.cdm.json/ProjectActivityTask",
+						"Name": "ActivityId"
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "TaskId",
+					"Description": "The unique identifier of a Task.",
+					"OriginDataTypeName": {
+						"TypeName": "integer",
+						"IsComplexType": false,
+						"IsNullable": false,
+						"Properties": {
+							"HIVE_TYPE_STRING": "integer"
+						}
+					},
+					"BaseAttributeReference": {
+						"Entity": "ProjectActivityTask.cdm.json/ProjectActivityTask",
+						"Name": "TaskId"
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "ActivityTaskSequenceNumber",
+					"Description": "The task execution sequence in the Activity.",
+					"OriginDataTypeName": {
+						"TypeName": "integer",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Properties": {
+							"HIVE_TYPE_STRING": "integer"
+						}
+					},
+					"BaseAttributeReference": {
+						"Entity": "ProjectActivityTask.cdm.json/ProjectActivityTask",
+						"Name": "ActivityTaskSequenceNumber"
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "ActivityTaskNote",
+					"Description": "A note, comment or additional information regarding the activity task.",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1024,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					},
+					"BaseAttributeReference": {
+						"Entity": "ProjectActivityTask.cdm.json/ProjectActivityTask",
+						"Name": "ActivityTaskNote"
+					},
+					"DeltaFormatInvalidMessages": []
+				}
+			],
+			"Format": {
+				"InputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+				"OutputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
+				"FormatType": "parquet",
+				"SerializeLib": "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+				"Properties": {
+					"path": "abfss://posynapsetest002fs@posynapsetest002str.dfs.core.windows.net/POC_Database/ProjectActivityTask",
+					"FormatTypeSetToDatabaseDefault": true
+				}
+			},
+			"Source": {
+				"Provider": "ADLS",
+				"Location": "abfss://posynapsetest002fs@posynapsetest002str.dfs.core.windows.net/POC_Database/ProjectActivityTask",
+				"Properties": {
+					"LinkedServiceName": "posynapsetest002-WorkspaceDefaultStorage",
+					"LocationSetToDatabaseDefault": true
+				}
+			},
+			"Properties": {
+				"textinputformat.record.delimiter": ",",
+				"compression": "{\"type\":\"None\",\"level\":\"optimal\"}",
+				"derivedModelAttributeInfo": "{\"attributeReferences\":{\"ProjectId\":{\"entity\":\"ProjectActivityTask.cdm.json/ProjectActivityTask\",\"name\":\"ProjectId\"},\"ActivityId\":{\"entity\":\"ProjectActivityTask.cdm.json/ProjectActivityTask\",\"name\":\"ActivityId\"},\"TaskId\":{\"entity\":\"ProjectActivityTask.cdm.json/ProjectActivityTask\",\"name\":\"TaskId\"},\"ActivityTaskSequenceNumber\":{\"entity\":\"ProjectActivityTask.cdm.json/ProjectActivityTask\",\"name\":\"ActivityTaskSequenceNumber\"},\"ActivityTaskNote\":{\"entity\":\"ProjectActivityTask.cdm.json/ProjectActivityTask\",\"name\":\"ActivityTaskNote\"}}}"
+			},
+			"Compressed": false,
+			"IsStoredAsSubdirectories": false
+		},
+		"Properties": {
+			"DerivedModelEntityInfo": "{\"entityDirectives\":{\"baseEntityReference\":{\"name\":\"ProjectActivityTask\",\"path\":\"ProjectActivityTask.cdm.json/ProjectActivityTask\"},\"description\":\"The task(s) consolidated by or grouped by the Activity.\",\"primaryKey\":[\"ProjectId\",\"ActivityId\",\"TaskId\"],\"projectionInfo\":{\"attributes\":[{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"ProjectActivityTask.cdm.json/ProjectActivityTask\",\"name\":\"ProjectId\"},\"dataType\":\"integer\",\"description\":\"The unique identifier of a Project.\",\"isNullable\":false,\"name\":\"ProjectId\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"ProjectActivityTask.cdm.json/ProjectActivityTask\",\"name\":\"ActivityId\"},\"dataType\":\"integer\",\"description\":\"The unique identifier of an Activity.\",\"isNullable\":false,\"name\":\"ActivityId\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"ProjectActivityTask.cdm.json/ProjectActivityTask\",\"name\":\"TaskId\"},\"dataType\":\"integer\",\"description\":\"The unique identifier of a Task.\",\"isNullable\":false,\"name\":\"TaskId\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"ProjectActivityTask.cdm.json/ProjectActivityTask\",\"name\":\"ActivityTaskSequenceNumber\"},\"dataType\":\"integer\",\"description\":\"The task execution sequence in the Activity.\",\"isNullable\":true,\"name\":\"ActivityTaskSequenceNumber\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"ProjectActivityTask.cdm.json/ProjectActivityTask\",\"name\":\"ActivityTaskNote\"},\"dataType\":\"string\",\"dataTypeLength\":1024,\"description\":\"A note, comment or additional information regarding the activity task.\",\"isNullable\":true,\"name\":\"ActivityTaskNote\"}]}}}",
+			"Description": "The task(s) consolidated by or grouped by the Activity.",
+			"DisplayFolderInfo": "{\"name\":\"Project Management\",\"colorCode\":\"#BD4B37\"}",
+			"PrimaryKeys": "ProjectId,ActivityId,TaskId",
+			"spark.sql.sources.provider": "parquet"
+		},
+		"Retention": 0,
+		"Temporary": false,
+		"IsRewriteEnabled": false
+	},
+	"type": "TABLE"
+}

@@ -1,0 +1,26 @@
+{
+	"name": "relationship-latrkwmrpb",
+	"properties": {
+		"Name": "relationship-latrkwmrpb",
+		"EntityType": "RELATIONSHIP",
+		"Namespace": {
+			"DatabaseName": "POC_Database"
+		},
+		"Origin": {
+			"Type": "SPARK"
+		},
+		"FromTableName": "Project",
+		"ToTableName": "ProjectActivity",
+		"ColumnRelationshipInformations": [
+			{
+				"FromColumnName": "ProjectId",
+				"ToColumnName": "ProjectId"
+			}
+		],
+		"RelationshipType": 0,
+		"Properties": {
+			"DerivedModelRelationshipInfo": "{\"baseRelationship\":{\"fromEntity\":\"Project.cdm.json/Project\",\"toEntity\":\"ProjectActivity.cdm.json/ProjectActivity\",\"joinPairs\":[{\"fromAttribute\":\"ProjectId\",\"toAttribute\":\"ProjectId\"}]}}"
+		}
+	},
+	"type": "RELATIONSHIP"
+}

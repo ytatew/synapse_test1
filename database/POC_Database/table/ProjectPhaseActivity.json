@@ -1,0 +1,124 @@
+{
+	"name": "ProjectPhaseActivity",
+	"properties": {
+		"Name": "ProjectPhaseActivity",
+		"EntityType": "TABLE",
+		"Namespace": {
+			"DatabaseName": "POC_Database"
+		},
+		"Description": "The Activity(s) associated with the Project Phase.",
+		"TableType": "EXTERNAL",
+		"Origin": {
+			"Type": "SPARK"
+		},
+		"StorageDescriptor": {
+			"Columns": [
+				{
+					"Name": "ProjectId",
+					"Description": "The unique identifier of a Project.",
+					"OriginDataTypeName": {
+						"TypeName": "integer",
+						"IsComplexType": false,
+						"IsNullable": false,
+						"Properties": {
+							"HIVE_TYPE_STRING": "integer"
+						}
+					},
+					"BaseAttributeReference": {
+						"Entity": "ProjectPhaseActivity.cdm.json/ProjectPhaseActivity",
+						"Name": "ProjectId"
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "ProjectPhaseId",
+					"Description": "The unique identifier of a Project Phase.",
+					"OriginDataTypeName": {
+						"TypeName": "integer",
+						"IsComplexType": false,
+						"IsNullable": false,
+						"Properties": {
+							"HIVE_TYPE_STRING": "integer"
+						}
+					},
+					"BaseAttributeReference": {
+						"Entity": "ProjectPhaseActivity.cdm.json/ProjectPhaseActivity",
+						"Name": "ProjectPhaseId"
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "ActivityId",
+					"Description": "The unique identifier of an Activity.",
+					"OriginDataTypeName": {
+						"TypeName": "integer",
+						"IsComplexType": false,
+						"IsNullable": false,
+						"Properties": {
+							"HIVE_TYPE_STRING": "integer"
+						}
+					},
+					"BaseAttributeReference": {
+						"Entity": "ProjectPhaseActivity.cdm.json/ProjectPhaseActivity",
+						"Name": "ActivityId"
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "ProjectPhaseActivityNote",
+					"Description": "A note, comment or additional information regarding the project phase activity.",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1024,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					},
+					"BaseAttributeReference": {
+						"Entity": "ProjectPhaseActivity.cdm.json/ProjectPhaseActivity",
+						"Name": "ProjectPhaseActivityNote"
+					},
+					"DeltaFormatInvalidMessages": []
+				}
+			],
+			"Format": {
+				"InputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+				"OutputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
+				"FormatType": "parquet",
+				"SerializeLib": "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+				"Properties": {
+					"path": "abfss://posynapsetest002fs@posynapsetest002str.dfs.core.windows.net/POC_Database/ProjectPhaseActivity",
+					"FormatTypeSetToDatabaseDefault": true
+				}
+			},
+			"Source": {
+				"Provider": "ADLS",
+				"Location": "abfss://posynapsetest002fs@posynapsetest002str.dfs.core.windows.net/POC_Database/ProjectPhaseActivity",
+				"Properties": {
+					"LinkedServiceName": "posynapsetest002-WorkspaceDefaultStorage",
+					"LocationSetToDatabaseDefault": true
+				}
+			},
+			"Properties": {
+				"textinputformat.record.delimiter": ",",
+				"compression": "{\"type\":\"None\",\"level\":\"optimal\"}",
+				"derivedModelAttributeInfo": "{\"attributeReferences\":{\"ProjectId\":{\"entity\":\"ProjectPhaseActivity.cdm.json/ProjectPhaseActivity\",\"name\":\"ProjectId\"},\"ProjectPhaseId\":{\"entity\":\"ProjectPhaseActivity.cdm.json/ProjectPhaseActivity\",\"name\":\"ProjectPhaseId\"},\"ActivityId\":{\"entity\":\"ProjectPhaseActivity.cdm.json/ProjectPhaseActivity\",\"name\":\"ActivityId\"},\"ProjectPhaseActivityNote\":{\"entity\":\"ProjectPhaseActivity.cdm.json/ProjectPhaseActivity\",\"name\":\"ProjectPhaseActivityNote\"}}}"
+			},
+			"Compressed": false,
+			"IsStoredAsSubdirectories": false
+		},
+		"Properties": {
+			"DerivedModelEntityInfo": "{\"entityDirectives\":{\"baseEntityReference\":{\"name\":\"ProjectPhaseActivity\",\"path\":\"ProjectPhaseActivity.cdm.json/ProjectPhaseActivity\"},\"description\":\"The Activity(s) associated with the Project Phase.\",\"primaryKey\":[\"ProjectId\",\"ProjectPhaseId\",\"ActivityId\"],\"projectionInfo\":{\"attributes\":[{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"ProjectPhaseActivity.cdm.json/ProjectPhaseActivity\",\"name\":\"ProjectId\"},\"dataType\":\"integer\",\"description\":\"The unique identifier of a Project.\",\"isNullable\":false,\"name\":\"ProjectId\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"ProjectPhaseActivity.cdm.json/ProjectPhaseActivity\",\"name\":\"ProjectPhaseId\"},\"dataType\":\"integer\",\"description\":\"The unique identifier of a Project Phase.\",\"isNullable\":false,\"name\":\"ProjectPhaseId\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"ProjectPhaseActivity.cdm.json/ProjectPhaseActivity\",\"name\":\"ActivityId\"},\"dataType\":\"integer\",\"description\":\"The unique identifier of an Activity.\",\"isNullable\":false,\"name\":\"ActivityId\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"ProjectPhaseActivity.cdm.json/ProjectPhaseActivity\",\"name\":\"ProjectPhaseActivityNote\"},\"dataType\":\"string\",\"dataTypeLength\":1024,\"description\":\"A note, comment or additional information regarding the project phase activity.\",\"isNullable\":true,\"name\":\"ProjectPhaseActivityNote\"}]}}}",
+			"Description": "The Activity(s) associated with the Project Phase.",
+			"DisplayFolderInfo": "{\"name\":\"Project Management\",\"colorCode\":\"#BD4B37\"}",
+			"PrimaryKeys": "ProjectId,ProjectPhaseId,ActivityId",
+			"spark.sql.sources.provider": "parquet"
+		},
+		"Retention": 0,
+		"Temporary": false,
+		"IsRewriteEnabled": false
+	},
+	"type": "TABLE"
+}

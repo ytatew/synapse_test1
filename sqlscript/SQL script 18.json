@@ -1,0 +1,17 @@
+{
+	"name": "SQL script 18",
+	"properties": {
+		"content": {
+			"query": "SELECT TOP (100) [TaskId]\n,[ResourceId]\n,[ResourceNumber]\n,[ResourceAmount]\n,[ResourceQuantity]\n FROM [POC_Database].[dbo].[TaskResource]",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "POC_Database",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

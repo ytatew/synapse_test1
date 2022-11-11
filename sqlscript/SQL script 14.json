@@ -1,0 +1,17 @@
+{
+	"name": "SQL script 14",
+	"properties": {
+		"content": {
+			"query": "SELECT TOP (100) [ProjectId]\n,[ProjectName]\n,[ProjectDescription]\n,[ProjectTypeId]\n,[ProjectPlannedStartTimestamp]\n,[ProjectPlannedEndTimestamp]\n,[ProjectEarliestStartTimestamp]\n,[ProjectEarliestEndTimestamp]\n,[ProjectLatestStartTimestamp]\n,[ProjectLatestEndTimestamp]\n,[ProjectClosingTimestamp]\n,[ProjectRiskAssessmentStatement]\n,[ProjectWorkStatement]\n,[ProjectCharterStatement]\n,[BusinessCaseStatement]\n,[LocationId]\n,[ProjectGlAccountNumber]\n,[ResponsibilityCenterId]\n,[ProjectNote]\n FROM [POC_Database].[dbo].[Project]",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "POC_Database",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
