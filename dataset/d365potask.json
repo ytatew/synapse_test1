@@ -1,13 +1,18 @@
 {
 	"name": "d365potask",
 	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ytatesynapse1028-WorkspaceDefaultStorage",
+			"type": "LinkedServiceReference"
+		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "D365_PO_Task.csv",
-				"folderPath": "source"
+				"fileName": "研番申請書-抽出20221117A.json",
+				"folderPath": "source",
+				"fileSystem": "ytatesynapse1028"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
