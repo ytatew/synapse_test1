@@ -1,0 +1,39 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"workspaceName": {
+			"value": "ytatesynapse1028"
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
+		"Dynamics1_servicePrincipalCredential": {
+			"value": ""
+		},
+		"d365-po-poc-WorkspaceDefaultSqlServer_connectionString": {
+			"value": ""
+		},
+		"d365_po_poc_servicePrincipalCredential": {
+			"value": ""
+		},
+		"posynapsetest002-WorkspaceDefaultSqlServer_connectionString": {
+			"value": ""
+		},
+		"ytatesynapse1028-WorkspaceDefaultSqlServer_connectionString": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://pocproecttest.dfs.core.windows.net/"
+		},
+		"Dynamics1_properties_typeProperties_servicePrincipalId": {
+			"value": "503ce4ca-9f26-4bff-a296-4f774b539aab"
+		},
+		"d365_po_poc_properties_typeProperties_servicePrincipalId": {
+			"value": "503ce4ca-9f26-4bff-a296-4f774b539aab"
+		},
+		"ytatesynapse1028-WorkspaceDefaultStorage_properties_typeProperties_url": {
+			"value": "https://ytatesynapse1028.dfs.core.windows.net"
+		}
+	}
+}
