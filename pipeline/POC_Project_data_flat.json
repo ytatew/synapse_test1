@@ -16,7 +16,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataflow": {
-						"referenceName": "POC_Project_data_flat",
+						"referenceName": "POC_Project_data_flat_old",
 						"type": "DataFlowReference"
 					},
 					"compute": {

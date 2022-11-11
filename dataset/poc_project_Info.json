@@ -2,7 +2,7 @@
 	"name": "poc_project_Info",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "posynapsetest002-WorkspaceDefaultStorage",
+			"referenceName": "ytatesynapse1028-WorkspaceDefaultStorage",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
@@ -10,11 +10,62 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "研番申請書-抽出20221117.json",
+				"fileName": "研番申請書-抽出20221117A.json",
 				"folderPath": "source",
-				"fileSystem": "posynapsetest002fs"
+				"fileSystem": "ytatesynapse1028"
 			}
 		},
-		"schema": {}
+		"schema": {
+			"type": "object",
+			"properties": {
+				"projectid": {
+					"type": "integer"
+				},
+				"Title": {
+					"type": "string"
+				},
+				"FiscalYear": {
+					"type": "integer"
+				},
+				"SeiriNo": {
+					"type": "integer"
+				},
+				"Syosyobumon": {
+					"type": "string"
+				},
+				"FutanSyubetsu": {
+					"type": "string"
+				},
+				"SinkiOrKeizoku": {
+					"type": "string"
+				},
+				"KenkyuDaimokuEtc": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"KenkyuKaihatsuNo": {
+								"type": "string"
+							},
+							"KenkyuKaihatsuDaimoku": {
+								"type": "string"
+							},
+							"ShinseiBumon": {
+								"type": "string"
+							},
+							"FutanMoto": {
+								"type": "string"
+							},
+							"Start": {
+								"type": "string"
+							},
+							"End": {
+								"type": "string"
+							}
+						}
+					}
+				}
+			}
+		}
 	}
 }

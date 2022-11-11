@@ -2,7 +2,7 @@
 	"name": "projectlist",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "posynapsetest002-WorkspaceDefaultStorage",
+			"referenceName": "ytatesynapse1028-WorkspaceDefaultStorage",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
@@ -11,7 +11,7 @@
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"folderPath": "output",
-				"fileSystem": "posynapsetest002fs"
+				"fileSystem": "ytatesynapse1028"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",

@@ -2,7 +2,7 @@
 	"name": "poc_resource",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "posynapsetest002-WorkspaceDefaultStorage",
+			"referenceName": "ytatesynapse1028-WorkspaceDefaultStorage",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
@@ -12,9 +12,75 @@
 				"type": "AzureBlobFSLocation",
 				"fileName": "リソース情報_正規化20221117.json",
 				"folderPath": "source",
-				"fileSystem": "posynapsetest002fs"
+				"fileSystem": "ytatesynapse1028"
 			}
 		},
-		"schema": {}
+		"schema": {
+			"type": "object",
+			"properties": {
+				"taskresource": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"taskid": {
+								"type": "integer"
+							},
+							"resourceid": {
+								"type": "integer"
+							}
+						}
+					}
+				},
+				"resource": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"resourceid": {
+								"type": "integer"
+							},
+							"resourcename": {
+								"type": "string"
+							},
+							"resourcetypeid": {
+								"type": "integer"
+							},
+							"employeeid": {
+								"type": "integer"
+							}
+						}
+					}
+				},
+				"resourcetype": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"resourcetypeid": {
+								"type": "integer"
+							},
+							"resourcetypename": {
+								"type": "string"
+							}
+						}
+					}
+				},
+				"emloyeeid": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"emloyeeid": {
+								"type": "integer"
+							},
+							"emloyeename": {
+								"type": "string"
+							}
+						}
+					}
+				}
+			}
+		}
 	}
 }

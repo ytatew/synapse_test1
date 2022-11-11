@@ -2,7 +2,7 @@
 	"name": "poc_document",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "posynapsetest002-WorkspaceDefaultStorage",
+			"referenceName": "ytatesynapse1028-WorkspaceDefaultStorage",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
@@ -12,9 +12,61 @@
 				"type": "AzureBlobFSLocation",
 				"fileName": "ドキュメント情報_新規作成20221117.json",
 				"folderPath": "source",
-				"fileSystem": "posynapsetest002fs"
+				"fileSystem": "ytatesynapse1028"
 			}
 		},
-		"schema": {}
+		"schema": {
+			"type": "object",
+			"properties": {
+				"Taskdocument": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"taskid": {
+								"type": "integer"
+							},
+							"documentid": {
+								"type": "integer"
+							}
+						}
+					}
+				},
+				"document": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"documentid": {
+								"type": "integer"
+							},
+							"documentname": {
+								"type": "string"
+							},
+							"documenttypeid": {
+								"type": "integer"
+							},
+							"documentcreatedtimestamp": {
+								"type": "string"
+							}
+						}
+					}
+				},
+				"DocumenteType": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"documenttypeid": {
+								"type": "integer"
+							},
+							"documenttypename": {
+								"type": "string"
+							}
+						}
+					}
+				}
+			}
+		}
 	}
 }

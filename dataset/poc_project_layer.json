@@ -2,7 +2,7 @@
 	"name": "poc_project_layer",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "posynapsetest002-WorkspaceDefaultStorage",
+			"referenceName": "ytatesynapse1028-WorkspaceDefaultStorage",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
@@ -10,11 +10,81 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "研究開発活動フォローシート正規化20221117_layer.json",
+				"fileName": "研究開発活動フォローシート20221117_flat.json",
 				"folderPath": "source",
-				"fileSystem": "posynapsetest002fs"
+				"fileSystem": "ytatesynapse1028"
 			}
 		},
-		"schema": {}
+		"schema": {
+			"type": "object",
+			"properties": {
+				"project_id": {
+					"type": "integer"
+				},
+				"follow_id": {
+					"type": "string"
+				},
+				"komoku": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"komoku_id": {
+								"type": "integer"
+							},
+							"comment": {
+								"type": "string"
+							},
+							"jisshikomoku": {
+								"type": "string"
+							},
+							"mokuhyochi": {
+								"type": "string"
+							},
+							"shokomoku": {
+								"type": "array",
+								"items": {
+									"type": "object",
+									"properties": {
+										"shokomoku_id": {
+											"type": "integer"
+										},
+										"comment": {
+											"type": "string"
+										},
+										"naiyo": {
+											"type": "string"
+										},
+										"tanto_bumon": {
+											"type": "string"
+										},
+										"shosai_jishijiko": {
+											"type": "array",
+											"items": {
+												"type": "object",
+												"properties": {
+													"jishijiko_id": {
+														"type": "integer"
+													},
+													"jisshikomoku": {
+														"type": "string"
+													},
+													"start": {
+														"type": "string"
+													},
+													"End": {
+														"type": "string"
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
 	}
 }

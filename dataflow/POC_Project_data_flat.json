@@ -1,5 +1,5 @@
 {
-	"name": "POC_Project_data_flat_old",
+	"name": "POC_Project_data_flat",
 	"properties": {
 		"type": "MappingDataFlow",
 		"typeProperties": {
@@ -10,20 +10,6 @@
 						"type": "DatasetReference"
 					},
 					"name": "source1"
-				},
-				{
-					"dataset": {
-						"referenceName": "poc_project_flat",
-						"type": "DatasetReference"
-					},
-					"name": "source2"
-				},
-				{
-					"dataset": {
-						"referenceName": "poc_project_flat",
-						"type": "DatasetReference"
-					},
-					"name": "source3"
 				}
 			],
 			"sinks": [
@@ -69,28 +55,6 @@
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false,",
 				"     documentForm: 'singleDocument') ~> source1",
-				"source(output(",
-				"          follow_id as string,",
-				"          komoku as (comment as string, jisshikomoku as string, komoku_id as short, mokuhyochi as string)[],",
-				"          project_id as integer,",
-				"          shokomoku as (comment as string, komoku_id as short, naiyo as string, shokomoku_id as short, tanto_bumon as string)[],",
-				"          shosai_jishijiko as (End as string, jishijiko_id as short, jisshikomoku as string, shokomoku_id as short, start as string)[]",
-				"     ),",
-				"     allowSchemaDrift: true,",
-				"     validateSchema: false,",
-				"     ignoreNoFilesFound: false,",
-				"     documentForm: 'singleDocument') ~> source2",
-				"source(output(",
-				"          follow_id as string,",
-				"          komoku as (comment as string, jisshikomoku as string, komoku_id as short, mokuhyochi as string)[],",
-				"          project_id as integer,",
-				"          shokomoku as (comment as string, komoku_id as short, naiyo as string, shokomoku_id as short, tanto_bumon as string)[],",
-				"          shosai_jishijiko as (End as string, jishijiko_id as short, jisshikomoku as string, shokomoku_id as short, start as string)[]",
-				"     ),",
-				"     allowSchemaDrift: true,",
-				"     validateSchema: false,",
-				"     ignoreNoFilesFound: false,",
-				"     documentForm: 'singleDocument') ~> source3",
 				"source1 foldDown(unroll(komoku),",
 				"     mapColumn(",
 				"          comment = komoku.comment,",
@@ -101,7 +65,7 @@
 				"     ),",
 				"     skipDuplicateMapInputs: false,",
 				"     skipDuplicateMapOutputs: false) ~> flatten1",
-				"source2 foldDown(unroll(shokomoku),",
+				"source1 foldDown(unroll(shokomoku),",
 				"     mapColumn(",
 				"          komoku_id = shokomoku.komoku_id,",
 				"          naiyo = shokomoku.naiyo,",
@@ -111,7 +75,7 @@
 				"     ),",
 				"     skipDuplicateMapInputs: false,",
 				"     skipDuplicateMapOutputs: false) ~> flatten2",
-				"source3 foldDown(unroll(shosai_jishijiko),",
+				"source1 foldDown(unroll(shosai_jishijiko),",
 				"     mapColumn(",
 				"          End = shosai_jishijiko.End,",
 				"          jishijiko_id = shosai_jishijiko.jishijiko_id,",
